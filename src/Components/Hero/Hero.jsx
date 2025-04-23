@@ -9,7 +9,16 @@ const Hero = () => {
         <img src="/friece.jpg" alt="" />
       </div>
       <div className="content" id='bar-code'>
-
+        <div className="bar-content">
+            <img src="/friece.jpg" alt="" />
+          <div className="image">
+            <img src="/qrcode.png" alt="bar code" />
+          </div>
+        </div>
+        <div className="title">
+          <h2>Welcome!</h2>
+          <p>Our menu on your smartphone</p>
+        </div>
       </div>
     </div>
   )

@@ -1,14 +1,18 @@
 .hero-container {
-    width: 100%;
-    height: 550px;
+    width: 70%;
+    height: 600px;
     border-radius: 30px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .hero-container
 .content {
     display: flex;
     width: 500px;
-    height: 600px;   
+    height: 600px;
+    justify-content: center;  
 }
 #image-container {
     width: 500px;
@@ -20,7 +24,7 @@
     width: 100%;
     display: block;
     mix-blend-mode: multiply;
-    background-color: red;
+    background-color: #9b3222;
     object-fit: cover;
     position: relative;
     display: block;
@@ -40,4 +44,52 @@
 }
 #bar-code {
     background-color: #fff;
+    width: 500px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bar-content {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    position: relative;
+    background-color: #e11c15ef;
+    border-radius: 40px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.bar-content img {
+    width: 100%;
+    display: block;
+    mix-blend-mode: multiply;
+    background-color: red;
+    object-fit: fill;
+    position: relative;
+}
+.image {
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: absolute;
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+}
+#bar-code h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 40px;
+    margin-bottom: 15px;
+    color: #e11b15;
+}
+#bar-code p {
+    font-size: 1.6rem;
+    width: 200px;
+    margin: 0;
 }
