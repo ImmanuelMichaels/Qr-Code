@@ -3,11 +3,13 @@ import { QRCodeSVG } from 'qrcode.react';
 import './Hero.css';
 
 const Hero = () => {
-  // Get current origin (works in dev and production)
-  const baseUrl = window.location.origin;
+  // Solution 1: Hardcoded production URL (most reliable)
+  const qrValue = 'https://hoteldomain.vercel.app/#/hotel';
   
-  // Create the correct hash-based URL
-  const hotelUrl = `${baseUrl}/#/hotel`;
+  // OR Solution 2: Dynamic version with fallback
+  // const qrValue = window.location.host.includes('vercel.app') 
+  //   ? 'https://hoteldomain.vercel.app/#/hotel'
+  //   : `${window.location.origin}/#/hotel`;
 
   return (
     <div className="hero-container">
@@ -19,11 +21,20 @@ const Hero = () => {
           <img src="/friece.jpg" alt="Hotel Logo" />
           <div className="image">
             <QRCodeSVG 
-              value={hotelUrl}  // Now includes the hash
+              value={qrValue}
               size={350}
               level="H"
               includeMargin={true}
             />
+            {/* Temporary debug - remove after verification */}
+            <div style={{
+              marginTop: '10px',
+              fontSize: '12px',
+              color: 'red', // Make it very visible
+              fontWeight: 'bold'
+            }}>
+              CONFIRM THIS MATCHES: {qrValue}
+            </div>
           </div>
         </div>
         <div className="title">
