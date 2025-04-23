@@ -16,7 +16,7 @@
 }
 #image-container {
     width: 500px;
-    background-color: #e11b15;
+    background-color: #690404da;
     overflow: hidden;
     position: relative;
 }
@@ -24,7 +24,7 @@
     width: 100%;
     display: block;
     mix-blend-mode: multiply;
-    background-color: #9b3222;
+    background-color: #9b322200;
     object-fit: cover;
     position: relative;
     display: block;
@@ -67,7 +67,7 @@
     width: 100%;
     display: block;
     mix-blend-mode: multiply;
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     object-fit: fill;
     position: relative;
 }

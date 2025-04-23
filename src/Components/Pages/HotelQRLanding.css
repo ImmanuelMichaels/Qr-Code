@@ -1,0 +1,303 @@
+/* HotelQRLanding.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .container {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  .header {
+    background-color: #1a365d;
+    color: white;
+    padding: 16px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .main-content {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .menu-container {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .menu-item {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .menu-icon {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .drinks-icon {
+    background-color: #2a4365;
+  }
+  
+  .rooms-icon {
+    background-color: #276749;
+  }
+  
+  .staff-icon {
+    background-color: #553c9a;
+  }
+  
+  .emoji {
+    font-size: 48px;
+    color: white;
+  }
+  
+  .menu-details {
+    padding: 16px;
+  }
+  
+  .menu-title {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .drinks-title {
+    color: #2a4365;
+  }
+  
+  .rooms-title {
+    color: #276749;
+  }
+  
+  .staff-title {
+    color: #553c9a;
+  }
+  
+  .menu-description {
+    color: #718096;
+    font-size: 14px;
+    margin: 0 0 16px 0;
+  }
+  
+  .btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+  }
+  
+  .drinks-btn {
+    background-color: #3182ce;
+  }
+  
+  .drinks-btn:hover {
+    background-color: #2c5282;
+  }
+  
+  .rooms-btn {
+    background-color: #38a169;
+  }
+  
+  .rooms-btn:hover {
+    background-color: #2f855a;
+  }
+  
+  .staff-btn {
+    background-color: #805ad5;
+  }
+  
+  .staff-btn:hover {
+    background-color: #6b46c1;
+  }
+  
+  .back-btn {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .item {
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .drink-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .item-title {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .item-description {
+    color: #718096;
+    font-size: 14px;
+    margin: 4px 0 0 0;
+  }
+  
+  .item-price {
+    font-weight: bold;
+  }
+  
+  .drink-price {
+    color: #2a4365;
+  }
+  
+  .rooms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .room-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .room-image {
+    height: 120px;
+    background-color: #e6fffa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .room-emoji {
+    font-size: 48px;
+  }
+  
+  .room-details {
+    padding: 16px;
+  }
+  
+  .room-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .room-capacity {
+    font-size: 14px;
+    color: #718096;
+  }
+  
+  .room-price {
+    font-weight: bold;
+    color: #276749;
+  }
+  
+  .book-btn {
+    width: 100%;
+    background-color: #38a169;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .book-btn:hover {
+    background-color: #2f855a;
+  }
+  
+  .staff-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  
+  .staff-position {
+    font-size: 14px;
+    color: #718096;
+  }
+  
+  .staff-hours {
+    font-size: 14px;
+    color: #553c9a;
+    font-weight: 500;
+  }
+  
+  .footer {
+    margin-top: 32px;
+    padding: 16px;
+    text-align: center;
+    color: #718096;
+    font-size: 14px;
+  }
+  
+  /* Media queries for better responsiveness */
+  @media (max-width: 500px) {
+    .header-title {
+      font-size: 20px;
+    }
+    
+    .menu-icon {
+      height: 100px;
+    }
+    
+    .emoji {
+      font-size: 40px;
+    }
+  }

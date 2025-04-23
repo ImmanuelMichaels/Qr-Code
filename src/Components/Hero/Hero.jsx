@@ -18,6 +18,7 @@ const Hero = () => {
         <div className="title">
           <h2>Welcome!</h2>
           <p>Our menu on your smartphone</p>
+          
         </div>
       </div>
     </div>
