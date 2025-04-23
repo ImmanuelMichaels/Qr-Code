@@ -1,6 +1,5 @@
-// Your existing App.js is perfect
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Hero from './Components/Hero/Hero';
 import HotelQRLanding from './Components/Pages/HotelQRLanding';

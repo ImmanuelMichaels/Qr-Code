@@ -3,8 +3,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import './Hero.css';
 
 const Hero = () => {
-  // Fixed the typo (protocol instead of protocol) and simplified URL construction
-  const qrValue = `${window.location.origin}/hotel`;
+  const qrValue = `${window.location.origin}/#/hotel`;
 
   return (
     <div className="hero-container">
@@ -18,7 +17,7 @@ const Hero = () => {
             <QRCodeSVG 
               value={qrValue}
               size={350}
-              level="H" // Highest error correction
+              level="H"
               includeMargin={true}
               bgColor="#ffffff"
               fgColor="#000000"
@@ -28,9 +27,7 @@ const Hero = () => {
         <div className="title">
           <h2>Welcome!</h2>
           <p>Scan QR code for hotel services</p>
-          {/* Removed the direct file link - not recommended for production */}
-          {/* Added a test link that uses React Router instead */}
-          <a href="/hotel" className="test-link">Test Hotel Page</a>
+          <a href="/#/hotel" className="test-link">Test Hotel Page</a>
         </div>
       </div>
     </div>

@@ -172,13 +172,13 @@ const HotelQRLanding = () => {
         <p>Scan this QR code again to access hotel services</p>
       </footer>
       <div className="footer-buttons">
-  <button 
-    onClick={() => window.location.href = "/"}
-    className="home-btn"
-  >
-    ← Back to Main Page
-  </button>
-</div>
+        <button 
+          onClick={() => (window.location.href = "/#/")}
+          className="home-btn"
+        >
+          ← Back to Main Page
+        </button>
+      </div>
     </div>
   )
 }
