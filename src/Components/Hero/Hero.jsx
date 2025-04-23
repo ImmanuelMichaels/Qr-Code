@@ -3,7 +3,11 @@ import { QRCodeSVG } from 'qrcode.react';
 import './Hero.css';
 
 const Hero = () => {
-  const qrValue = `${window.location.origin}/#/hotel`;
+  // Get current origin (works in dev and production)
+  const baseUrl = window.location.origin;
+  
+  // Create the correct hash-based URL
+  const hotelUrl = `${baseUrl}/#/hotel`;
 
   return (
     <div className="hero-container">
@@ -15,12 +19,10 @@ const Hero = () => {
           <img src="/friece.jpg" alt="Hotel Logo" />
           <div className="image">
             <QRCodeSVG 
-              value={qrValue}
+              value={hotelUrl}  // Now includes the hash
               size={350}
               level="H"
               includeMargin={true}
-              bgColor="#ffffff"
-              fgColor="#000000"
             />
           </div>
         </div>
@@ -31,7 +33,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Hero;
