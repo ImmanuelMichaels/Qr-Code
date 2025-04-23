@@ -27,14 +27,14 @@ const Hero = () => {
               includeMargin={true}
             />
             {/* Temporary debug - remove after verification */}
-            <div style={{
+            {/* <div style={{
               marginTop: '10px',
               fontSize: '12px',
               color: 'red', // Make it very visible
               fontWeight: 'bold'
             }}>
               CONFIRM THIS MATCHES: {qrValue}
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="title">
