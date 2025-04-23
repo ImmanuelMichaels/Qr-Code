@@ -33,7 +33,9 @@ const HotelQRLanding = () => {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="header-title">Luxury Hotel Services</h1>
+        <div className="header-container">
+          <h1 className='header-title'>Oriental Hotel Services</h1>
+        </div>
       </header>
 
       {activeSection === 'home' && (
@@ -168,17 +170,16 @@ const HotelQRLanding = () => {
         </div>
       )}
 
-      <footer className="footer">
-        <p>Scan this QR code again to access hotel services</p>
-      </footer>
       <div className="footer-buttons">
         <button 
           onClick={() => (window.location.href = "/#/")}
-          className="home-btn"
-        >
+          className="home-btn">
           ← Back to Main Page
         </button>
       </div>
+      <footer className="footer">
+        <p>Scan this QR code again to access hotel services</p>
+      </footer>
     </div>
   )
 }

@@ -3,14 +3,9 @@ import { QRCodeSVG } from 'qrcode.react';
 import './Hero.css';
 
 const Hero = () => {
-  // Solution 1: Hardcoded production URL (most reliable)
   const qrValue = 'https://hoteldomain.vercel.app/hotel';
-  
-  // OR Solution 2: Dynamic version with fallback
-  // const qrValue = window.location.host.includes('vercel.app') 
-  //   ? 'https://hoteldomain.vercel.app/#/hotel'
-  //   : `${window.location.origin}hotel`;
 
+  
   return (
     <div className="hero-container">
       <div className="content" id='image-container'>
@@ -26,21 +21,13 @@ const Hero = () => {
           level="H"
           includeMargin={true}
         />
-        {/* Temporary debug output */}
-        <div style={{
-          color: 'red',
-          fontSize: '12px',
-          marginTop: '10px',
-          wordBreak: 'break-all'
-        }}>
-          VERIFY: {qrValue}
-            </div> 
-          </div>
+        
+        </div>
         </div>
         <div className="title">
           <h2>Welcome!</h2>
           <p>Scan QR code for hotel services</p>
-          <a href="/hotel" className="test-link">Test Hotel Page</a>
+          {/* <a href="/hotel" className="test-link">Test Hotel Page</a> */}
         </div>
       </div>
     </div>
