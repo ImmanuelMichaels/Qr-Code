@@ -1,0 +1,189 @@
+.staff-dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .dashboard-header h1 {
+    color: #2c3e50;
+    margin: 0;
+  }
+  
+  .sales-summary {
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  
+  .sales-label {
+    color: #6c757d;
+    margin-right: 8px;
+  }
+  
+  .sales-amount {
+    color: #28a745;
+  }
+  
+  .tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .tab-btn {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #6c757d;
+    position: relative;
+  }
+  
+  .tab-btn.active {
+    color: #2c3e50;
+  }
+  
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #3498db;
+  }
+  
+  .loading, .no-orders, .no-history {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+  }
+  
+  .order-card, .history-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .order-header, .history-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .room-number, .history-room {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .order-time, .history-date {
+    color: #6c757d;
+    font-size: 0.9em;
+  }
+  
+  .history-status {
+    font-weight: 600;
+    font-size: 0.85em;
+    padding: 3px 8px;
+    border-radius: 12px;
+  }
+  
+  .history-status.completed {
+    background-color: #e6f7ee;
+    color: #28a745;
+  }
+  
+  .history-status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .order-items, .history-items {
+    padding: 15px;
+  }
+  
+  .order-item, .history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e9ecef;
+  }
+  
+  .order-item:last-child, .history-item:last-child {
+    border-bottom: none;
+  }
+  
+  .item-quantity {
+    min-width: 30px;
+    font-weight: 600;
+  }
+  
+  .item-name {
+    flex-grow: 1;
+    margin-left: 15px;
+  }
+  
+  .item-unit {
+    font-size: 0.8em;
+    color: #6c757d;
+    margin-right: 10px;
+  }
+  
+  .item-price {
+    min-width: 60px;
+    text-align: right;
+  }
+  
+  .order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .order-total {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .complete-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  
+  .complete-btn:hover {
+    background-color: #218838;
+  }
+  
+  .history-total {
+    padding: 15px;
+    text-align: right;
+    font-weight: 600;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+  }

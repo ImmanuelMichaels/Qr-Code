@@ -155,6 +155,7 @@
     color: #3498db;
     text-decoration: none;
     transition: color 0.2s;
+    margin: 20px 0;
   }
   
   .forgot-password:hover {
