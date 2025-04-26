@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams to get dynamic route parameters
+import { useParams } from 'react-router-dom';
+import { db } from '/Users/Michael/Desktop/QR-project/firebase'; // ✅ Correct import (keep just this one)
+import { collection, doc, updateDoc, onSnapshot, query, where } from 'firebase/firestore';
 import './StaffDashboard.css';
+
 
 const StaffDashboard = () => {
   const { department } = useParams(); // Retrieve department from the URL parameter
@@ -23,89 +26,59 @@ const StaffDashboard = () => {
   };
 
   useEffect(() => {
-    const fetchOrders = () => {
-      setIsLoading(true);
-
-      setTimeout(() => {
-        const mockOrders = [
-          {
-            id: 1,
-            roomNumber: '304',
-            items: [
-              { name: 'Classic Mojito', quantity: 2, price: 12 },
-              { name: 'House Red Wine', quantity: 1, price: 9 }
-            ],
-            total: 33,
-            timestamp: new Date(Date.now() - 1000 * 60 * 15),
-            status: 'pending'
-          },
-          {
-            id: 2,
-            roomNumber: '215',
-            items: [
-              { name: 'Margherita Pizza', quantity: 1, price: 15 },
-              { name: 'Caesar Salad', quantity: 1, price: 14 }
-            ],
-            total: 29,
-            timestamp: new Date(Date.now() - 1000 * 60 * 5),
-            status: 'pending'
-          }
-        ];
-
-        const mockHistory = [
-          {
-            id: 101,
-            roomNumber: '412',
-            items: [
-              { name: 'Express Laundry', quantity: 2, price: 25, unit: 'per bag' }
-            ],
-            total: 50,
-            timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2),
-            status: 'completed'
-          },
-          {
-            id: 102,
-            roomNumber: '304',
-            items: [
-              { name: 'Club Sandwich', quantity: 1, price: 16 },
-              { name: 'Craft Beer', quantity: 2, price: 8 }
-            ],
-            total: 32,
-            timestamp: new Date(Date.now() - 1000 * 60 * 60 * 5),
-            status: 'completed'
-          }
-        ];
-
-        const relevantItems = getRelevantItems();
-
-        const filteredOrders = mockOrders.filter(order =>
+    const relevantItems = getRelevantItems();
+  
+    // Firestore query for current orders (status: 'pending')
+    const currentOrdersQuery = query(
+      collection(db, 'orders'),
+      where('status', '==', 'pending')
+    );
+  
+    // Firestore query for order history (status: 'completed')
+    const historyOrdersQuery = query(
+      collection(db, 'orders'),
+      where('status', '==', 'completed')
+    );
+  
+    const unsubscribeCurrent = onSnapshot(currentOrdersQuery, (snapshot) => {
+      const current = snapshot.docs
+        .map(doc => ({ id: doc.id, ...doc.data() }))
+        .filter(order =>
           order.items.some(item => relevantItems.includes(item.name))
         );
-
-        const filteredHistory = mockHistory.filter(order =>
+  
+      setOrders(current);
+      setIsLoading(false);
+    });
+  
+    const unsubscribeHistory = onSnapshot(historyOrdersQuery, (snapshot) => {
+      const history = snapshot.docs
+        .map(doc => ({ id: doc.id, ...doc.data() }))
+        .filter(order =>
           order.items.some(item => relevantItems.includes(item.name))
         );
-
-        setOrders(filteredOrders);
-        setOrderHistory(filteredHistory);
-        setTotalSales(filteredHistory.reduce((sum, order) => sum + order.total, 0));
-        setIsLoading(false);
-      }, 800);
+  
+      setOrderHistory(history);
+      const total = history.reduce((sum, order) => sum + order.total, 0);
+      setTotalSales(total);
+    });
+  
+    return () => {
+      unsubscribeCurrent();
+      unsubscribeHistory();
     };
-
-    fetchOrders();
-
-    const interval = setInterval(fetchOrders, 30000);
-
-    return () => clearInterval(interval);
   }, [department]);
+  
 
-  const handleCompleteOrder = (orderId) => {
-    const orderToComplete = orders.find(order => order.id === orderId);
-    if (orderToComplete) {
-      setOrders(orders.filter(order => order.id !== orderId));
-      setOrderHistory([{ ...orderToComplete, status: 'completed' }, ...orderHistory]);
-      setTotalSales(totalSales + orderToComplete.total);
+  const handleCompleteOrder = async (orderId) => {
+    try {
+      const orderRef = doc(db, 'orders', orderId);
+      await updateDoc(orderRef, {
+        status: 'completed',
+        completedAt: new Date() // optional: timestamp for history sorting
+      });
+    } catch (error) {
+      console.error('Error completing order:', error);
     }
   };
 

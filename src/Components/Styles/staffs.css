@@ -1,0 +1,37 @@
+.staff-management {
+    padding: 20px;
+  }
+  
+  .staff-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .staff-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  .add-staff-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .add-staff-form button {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-staff-form button[type="button"] {
+    background-color: red;
+  }
+  

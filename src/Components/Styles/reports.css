@@ -1,0 +1,41 @@
+.reports-page {
+    padding: 20px;
+  }
+  
+  .report-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .export-btn, .print-btn {
+    background-color: #3498db;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .export-btn:hover, .print-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .print-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  

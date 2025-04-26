@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import './Signup.css';
 
 const Signup = () => {
@@ -31,7 +31,7 @@ const Signup = () => {
     const newErrors = {};
 
     if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
-    if (!formData.lastNameName.trim()) newErrors.lastName = 'Last name is required';
+    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -48,7 +48,6 @@ const Signup = () => {
     if (!formData.dob) newErrors.dob = 'Date of birth is required';
     if (!formData.address) newErrors.address = 'Home address is required';
     if (!formData.state) newErrors.state = 'State of residence is required';
-
     if (!formData.acceptTerms) newErrors.acceptTerms = 'You must accept the terms';
 
     setErrors(newErrors);
@@ -62,12 +61,12 @@ const Signup = () => {
     if (validate()) {
       setIsSubmitting(true);
 
-      // Simulate API call
       setTimeout(() => {
         console.log('User registered:', formData);
         setSuccessMessage('Signup successful! Please log in.');
         setFormData({
-          fullName: '',
+          firstName: '',
+          lastName: '',
           email: '',
           password: '',
           confirmPassword: '',
@@ -77,6 +76,7 @@ const Signup = () => {
           state: '',
           acceptTerms: false,
         });
+        setErrors({});
         setIsSubmitting(false);
       }, 2000);
     }
@@ -90,35 +90,34 @@ const Signup = () => {
       {successMessage && <div className="success-message">{successMessage}</div>}
 
       <form onSubmit={handleSubmit} noValidate>
-    
-    <div className="group-container">
+        <div className="group-container">
+          <div className="form-group">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              className={errors.firstName ? 'error' : ''}
+            />
+            {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className={errors.fullName ? 'error' : ''}
-          />
-          {errors.fullName && <span className="error-message">{errors.fullName}</span>}
+          <div className="form-group">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              className={errors.lastName ? 'error' : ''}
+            />
+            {errors.lastName && <span className="error-message">{errors.lastName}</span>}
+          </div>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="firstName">Last Name</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className={errors.fullName ? 'error' : ''}
-          />
-          {errors.fullName && <span className="error-message">{errors.fullName}</span>}
-        </div>
-    </div>
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <input
@@ -157,33 +156,35 @@ const Signup = () => {
           />
           {errors.dob && <span className="error-message">{errors.dob}</span>}
         </div>
-    <div className="group-container">
-        <div className="form-group">
-          <label htmlFor="address">Home Address</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            className={errors.address ? 'error' : ''}
-          />
-          {errors.address && <span className="error-message">{errors.address}</span>}
+
+        <div className="group-container">
+          <div className="form-group">
+            <label htmlFor="address">Home Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className={errors.address ? 'error' : ''}
+            />
+            {errors.address && <span className="error-message">{errors.address}</span>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="state">State of Residence</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              className={errors.state ? 'error' : ''}
+            />
+            {errors.state && <span className="error-message">{errors.state}</span>}
+          </div>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="state">State of Residence</label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            className={errors.state ? 'error' : ''}
-          />
-          {errors.state && <span className="error-message">{errors.state}</span>}
-        </div>
-    </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
