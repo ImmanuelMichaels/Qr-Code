@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Minomu';
+  src: url('/fonts/MinomuBlack-BWVKV.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

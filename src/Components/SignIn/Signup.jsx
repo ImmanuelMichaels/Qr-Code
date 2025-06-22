@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Signup.css';
 
 const Signup = () => {
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -13,11 +17,31 @@ const Signup = () => {
     address: '',
     state: '',
     acceptTerms: false,
+    role: 'staff', // Default role changed to 'staff'
+    department: 'frontdesk', // Added department field
   });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [apiError, setApiError] = useState(null);
+  
+  const [departmentOptions, setDepartmentOptions] = useState([
+    { value: 'frontdesk', label: 'Front Desk' },
+    { value: 'food', label: 'Food Service' },
+    { value: 'security', label: 'Security' },
+    { value: 'housekeeping', label: 'Housekeeping' },
+  ]);
+
+  // Dynamically update department options if needed
+  useEffect(() => {
+    // Example condition to add a new department option
+    const newDepartmentOptions = [...departmentOptions];
+    if (formData.state === 'California') {
+      newDepartmentOptions.push({ value: 'management', label: 'Management' });
+    }
+    setDepartmentOptions(newDepartmentOptions);
+  }, [formData.state]); // Re-run when the state changes
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -49,21 +73,47 @@ const Signup = () => {
     if (!formData.address) newErrors.address = 'Home address is required';
     if (!formData.state) newErrors.state = 'State of residence is required';
     if (!formData.acceptTerms) newErrors.acceptTerms = 'You must accept the terms';
+    if (!formData.department) newErrors.department = 'Department is required';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccessMessage(null);
+    setApiError(null);
 
     if (validate()) {
       setIsSubmitting(true);
 
-      setTimeout(() => {
-        console.log('User registered:', formData);
-        setSuccessMessage('Signup successful! Please log in.');
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+
+        // Remove confirmPassword and acceptTerms before sending to API
+        const { confirmPassword, acceptTerms, ...dataToSend } = formData;
+
+        // Format data as required by backend
+        const formattedData = {
+          ...dataToSend,
+          name: `${dataToSend.firstName} ${dataToSend.lastName}`, // Combine first and last name
+          // Keep role as 'staff' but include department
+        };
+
+        const response = await axios.post(
+          'http://localhost:5000/api/users/register', 
+          formattedData,
+          config
+        );
+
+        console.log('Registration successful:', response.data);
+        setSuccessMessage('Registration successful! Please log in.');
+        
+        // Clear form
         setFormData({
           firstName: '',
           lastName: '',
@@ -75,49 +125,66 @@ const Signup = () => {
           address: '',
           state: '',
           acceptTerms: false,
+          role: 'staff',
+          department: 'frontdesk',
         });
-        setErrors({});
-        setIsSubmitting(false);
-      }, 2000);
+        
+        // Redirect to login after a delay
+        setTimeout(() => {
+          navigate('/signin');
+        }, 2000);
+        
+      } catch (error) {
+        console.error('Registration error:', error);
+        setApiError(
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : 'Registration failed. Please try again.'
+        );
+      }
+
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="signup-container">
-      <h1>Create Account</h1>
-      <p className="subtitle">Fill your details</p>
+      <h1>Create Staff Account</h1>
+      <p className="subtitle">Fill in your details to register</p>
 
       {successMessage && <div className="success-message">{successMessage}</div>}
+      {apiError && <div className="error-message api-error">{apiError}</div>}
 
       <form onSubmit={handleSubmit} noValidate>
-        <div className="group-container">
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              className={errors.firstName ? 'error' : ''}
-            />
-            {errors.firstName && <span className="error-message">{errors.firstName}</span>}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              className={errors.lastName ? 'error' : ''}
-            />
-            {errors.lastName && <span className="error-message">{errors.lastName}</span>}
-          </div>
+        {/* First Name */}
+        <div className="form-group">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            className={errors.firstName ? 'error' : ''}
+          />
+          {errors.firstName && <span className="error-message">{errors.firstName}</span>}
         </div>
 
+        {/* Last Name */}
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            className={errors.lastName ? 'error' : ''}
+          />
+          {errors.lastName && <span className="error-message">{errors.lastName}</span>}
+        </div>
+
+        {/* Email */}
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <input
@@ -131,6 +198,7 @@ const Signup = () => {
           {errors.email && <span className="error-message">{errors.email}</span>}
         </div>
 
+        {/* Phone Number */}
         <div className="form-group">
           <label htmlFor="phoneNumber">Phone Number</label>
           <input
@@ -144,6 +212,7 @@ const Signup = () => {
           {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
         </div>
 
+        {/* Date of Birth */}
         <div className="form-group">
           <label htmlFor="dob">Date of Birth</label>
           <input
@@ -157,34 +226,54 @@ const Signup = () => {
           {errors.dob && <span className="error-message">{errors.dob}</span>}
         </div>
 
-        <div className="group-container">
-          <div className="form-group">
-            <label htmlFor="address">Home Address</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              className={errors.address ? 'error' : ''}
-            />
-            {errors.address && <span className="error-message">{errors.address}</span>}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="state">State of Residence</label>
-            <input
-              type="text"
-              id="state"
-              name="state"
-              value={formData.state}
-              onChange={handleChange}
-              className={errors.state ? 'error' : ''}
-            />
-            {errors.state && <span className="error-message">{errors.state}</span>}
-          </div>
+        {/* Address */}
+        <div className="form-group">
+          <label htmlFor="address">Home Address</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            className={errors.address ? 'error' : ''}
+          />
+          {errors.address && <span className="error-message">{errors.address}</span>}
         </div>
 
+        {/* State */}
+        <div className="form-group">
+          <label htmlFor="state">State</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+            className={errors.state ? 'error' : ''}
+          />
+          {errors.state && <span className="error-message">{errors.state}</span>}
+        </div>
+
+        {/* Department Selection */}
+        <div className="form-group">
+          <label htmlFor="department">Department</label>
+          <select
+            id="department"
+            name="department"
+            value={formData.department}
+            onChange={handleChange}
+            className={errors.department ? 'error' : ''}
+          >
+            {departmentOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          {errors.department && <span className="error-message">{errors.department}</span>}
+        </div>
+
+        {/* Password */}
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
@@ -198,6 +287,7 @@ const Signup = () => {
           {errors.password && <span className="error-message">{errors.password}</span>}
         </div>
 
+        {/* Confirm Password */}
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
@@ -211,6 +301,7 @@ const Signup = () => {
           {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
         </div>
 
+        {/* Terms and Conditions */}
         <div className="form-options">
           <input
             type="checkbox"

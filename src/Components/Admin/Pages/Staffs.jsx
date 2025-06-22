@@ -12,7 +12,7 @@ const Staffs = () => {
     fetch('/api/staff')  // Replace with the actual API endpoint
       .then((response) => response.json())
       .then((data) => setStaffList(data))
-      .catch((err) => console.error('Error fetching staff:', err));
+      // .catch((err) => console.error('Error fetching staff:', err));
   }, []);
 
   // Handle new staff form submission

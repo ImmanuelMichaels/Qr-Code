@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Add this for Axios
 import '../../Styles/orders.css'
 
-// Sample order data (to be fetched from your backend)
-const ordersData = [
-  { id: 1, room: '101', department: 'Room Service', date: '2025-04-20', status: 'Pending' },
-  { id: 2, room: '102', department: 'Housekeeping', date: '2025-04-19', status: 'Completed' },
-  { id: 3, room: '103', department: 'Room Service', date: '2025-04-18', status: 'In Progress' },
-  // Add more sample data here or fetch from API
-];
-
 const Orders = () => {
-  const [orders, setOrders] = useState(ordersData);
-  const [filteredOrders, setFilteredOrders] = useState(ordersData);
+  const [orders, setOrders] = useState([]);
+  const [filteredOrders, setFilteredOrders] = useState([]);
   const [filters, setFilters] = useState({
     department: '',
     room: '',
@@ -19,7 +12,22 @@ const Orders = () => {
   });
 
   useEffect(() => {
-    // Logic to fetch real orders data, for now using mock data
+    // Fetch orders from backend API
+    const fetchOrders = async () => {
+      try {
+        const response = await axios.get('/api/orders');
+        setOrders(response.data); // Set orders data
+        setFilteredOrders(response.data); // Initialize filtered orders with all orders
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+      }
+    };
+    
+    fetchOrders();
+  }, []);
+
+  useEffect(() => {
+    // Filter orders based on selected filters
     setFilteredOrders(orders.filter(order => {
       const matchesDepartment = filters.department ? order.department.includes(filters.department) : true;
       const matchesRoom = filters.room ? order.room.includes(filters.room) : true;
@@ -28,15 +36,24 @@ const Orders = () => {
     }));
   }, [filters, orders]);
 
-  // Handle updates and cancellations
-  const handleUpdateStatus = (id, status) => {
-    setOrders(prevOrders =>
-      prevOrders.map(order => order.id === id ? { ...order, status } : order)
-    );
+  const handleUpdateStatus = async (id, status) => {
+    try {
+      const response = await axios.put(`/api/orders/${id}`, { status });
+      setOrders(prevOrders =>
+        prevOrders.map(order => order.id === id ? { ...order, status: response.data.status } : order)
+      );
+    } catch (error) {
+      console.error("Error updating order status:", error);
+    }
   };
 
-  const handleCancelOrder = id => {
-    setOrders(prevOrders => prevOrders.filter(order => order.id !== id));
+  const handleCancelOrder = async (id) => {
+    try {
+      await axios.delete(`/api/orders/${id}`);
+      setOrders(prevOrders => prevOrders.filter(order => order.id !== id));
+    } catch (error) {
+      console.error("Error deleting order:", error);
+    }
   };
 
   return (
@@ -82,15 +99,15 @@ const Orders = () => {
         </thead>
         <tbody>
           {filteredOrders.map(order => (
-            <tr key={order.id}>
-              <td>{order.id}</td>
-              <td>{order.room}</td>
+            <tr key={order._id}> {/* Use _id for MongoDB object ID */}
+              <td>{order._id}</td> {/* Display MongoDB ID */}
+              <td>{order.roomNumber}</td>
               <td>{order.department}</td>
               <td>{order.date}</td>
               <td>{order.status}</td>
               <td>
-                <button onClick={() => handleUpdateStatus(order.id, 'Completed')}>Complete</button>
-                <button onClick={() => handleCancelOrder(order.id)}>Cancel</button>
+                <button onClick={() => handleUpdateStatus(order._id, 'Completed')}>Complete</button>
+                <button onClick={() => handleCancelOrder(order._id)}>Cancel</button>
               </td>
             </tr>
           ))}

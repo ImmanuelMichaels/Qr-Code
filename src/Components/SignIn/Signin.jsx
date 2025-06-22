@@ -1,10 +1,14 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import api from '../services/api';
 import './Signin.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const Signin = () => {
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -15,12 +19,14 @@ const Signin = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [authError, setAuthError] = useState(null);
 
-  // Simulated users database with roles
-  const usersDB = [
-    { email: 'foodstaff@example.com', password: 'food123', role: 'food' },
-    { email: 'security@example.com', password: 'secure123', role: 'security' },
-    { email: 'admin@example.com', password: 'admin123', role: 'admin' },
-  ];
+  useEffect(() => {
+    // Check if user is already logged in
+    const userInfo = localStorage.getItem('userInfo') || sessionStorage.getItem('userInfo');
+    if (userInfo) {
+      const user = JSON.parse(userInfo);
+      navigate(`/staff/${user.role}`);
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -46,35 +52,40 @@ const Signin = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setAuthError(null);
 
     if (validate()) {
       setIsSubmitting(true);
 
-      setTimeout(() => {
-        const matchedUser = usersDB.find(
-          (user) =>
-            user.email === formData.email &&
-            user.password === formData.password
+      try {
+        const { data } = await api.post(
+          '/api/auth/login',
+          { email: formData.email, password: formData.password }
         );
 
-        if (matchedUser) {
-          console.log('Login successful:', matchedUser);
-
-          // Save to localStorage
-          localStorage.setItem('userRole', matchedUser.role);
-          localStorage.setItem('userEmail', matchedUser.email);
-
-          // Redirect based on role
-          window.location.href = `/staff/${matchedUser.role}`;
+        // Store user data based on remember me preference
+        if (formData.rememberMe) {
+          localStorage.setItem('userInfo', JSON.stringify(data));
         } else {
-          setAuthError('Invalid email or password');
+          sessionStorage.setItem('userInfo', JSON.stringify(data));
         }
 
-        setIsSubmitting(false);
-      }, 1000);
+        // Store token for API requests
+        localStorage.setItem('token', data.token);
+        
+        // Redirect based on role
+        navigate(`/staff/${data.role}`);
+      } catch (error) {
+        setAuthError(
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : 'Invalid email or password'
+        );
+      }
+
+      setIsSubmitting(false);
     }
   };
 
