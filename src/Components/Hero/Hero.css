@@ -7,7 +7,8 @@
     justify-content: center;
     align-items: center;
     font-family: 'satoshi'; 
-    background-color: #111111; 
+    background: linear-gradient(90deg, #0b1814, #051918, #02191e, #041924, #0c1728, #171429, #211026, #2a0c1f);
+    /* background-color: #111111;  */
     padding-top: 200px;  
 }
 .hero-content {
@@ -47,7 +48,7 @@
     margin-bottom: 40px;
 } 
 .guest-feature p {
-    font-size: .950rem;
+    font-size: .900rem;
     color: #111111;
 }
 .guest-feature span {
@@ -129,25 +130,28 @@
 }
 .hero-button {
     display: flex;
-    width: 400px;
     gap: 20px;
-    justify-content: center;
-    align-items: center;
     margin-top: 30px;
+    width: 400px;
 }
 #demo {
     background-color: #ffffff;
     border: 1px solid #afadad18;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     color: #fff;
+    width: 200px;
 }
 #join {
     background-color: #111111;
     border: 1px solid #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: #fff;
+    width: 200px;
 }
 #join .link {
     color: #fff;
@@ -181,7 +185,7 @@
     justify-content: center;
     align-items: center;
     font-family: 'satoshi'; 
-
+    margin-bottom: 100px;
 }
 .banner-content {
     display: flex;
@@ -223,8 +227,11 @@
     padding-left: 20px;
 }
 
-/* Benefits */
-.benefits-container {
+/* Benefits section styling*/
+.benefits-container,
+.features-container, 
+.how-it-works,
+.pricing-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -232,10 +239,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    margin-bottom: 100px;
     font-family: 'satoshi';
     font-weight: bolder;
 }
-
 .benefits-container
 .heading {
     font-size: 7rem;
@@ -246,11 +253,27 @@
     margin-top: 50px;
 }
 #benefits-box {
-    /* background-color: #afadad18; */
+    width: 650px;
+    height: 950px;
     background: linear-gradient(135deg, #f0f4ff, #ffffff);
     position: relative;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
+    box-shadow: 5px 5px 5px #1111112d;
+    border-top-right-radius: 10px;
+}
+#benefits-box::before {
+    content: '';
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    width: 500px;
+    height: 950px;
+    position: absolute;
+    top: 0;
+    left: 200px;
+    z-index: -1;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 5px 5px 5px #1111112d;
 }
 .particular {
     width: 600px;
@@ -258,6 +281,11 @@
     border-radius: 20px;
     padding: 40px;
     margin: 20px 30px;
+}
+.particular .icon {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
 }
 .analysis {
     padding: 20px;
@@ -299,7 +327,9 @@
     height: 20px;
     border-radius: 100%;
 }
-
+#box-icon {
+    width: 30px;
+}
 #stacked-avatars {
   display: flex;
   align-items: center;
@@ -340,4 +370,157 @@
 }
 
 
+/* FEATURES section styling */
+.features-content, 
+.how-it-works-content,
+.pricing-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.feature-comp {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.feature-list{
+    width: 1200px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    place-items: center;
+    padding: 20px 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #6b63ff25 0%, #edebff71 100%);
+}
+.feature-list #inner-list {
+    width: 390px;
+    border: 1px solid #1111112d;
+    list-style-type: none;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 10px #11111111;
+}
+.feature-list #inner-list .text-icon {
+    display: flex;
+    align-items: center;
+    padding: 10px;
 
+    img{
+        width: 30px;
+    }
+}
+.feature-list #heading {
+    width: 100%;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-family: 'satoshi';
+    color: #3329fd;
+}
+.feature-list #sub-text {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6b63ff13 0%, #edebff71 100%);
+}
+.feature-list #sub-text .sub-image{
+    width: 400px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 10px;
+    border-radius: 10px;
+}
+.qr {
+    background-image: url(/scanQR.png);
+}
+.orders {
+    background-image: url(/Orders.png);
+}
+.custom {
+    background-image: url(/custom.png);
+}
+.dept {
+    background-image: url(/Dept.png);
+}
+.analytics {
+    background-image: url(/Analytics.png);
+}
+.graphics-comp {
+    width: 800px;
+    height: 500px;
+    overflow: hidden;
+    background-image: url(/Dashboard.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* HOW IT WORKS STYLING */
+
+.how-it-works-content {
+    margin: 50px 0;
+}
+.hiw-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.hiw-list #inner-list {
+    width: 300px;
+    border: 1px solid #1111112d;
+    list-style-type: none;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 10px #11111111;
+    text-align: center;
+}
+.hiw-list #sub-text {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    background: linear-gradient(135deg, #6b63ff13 0%, #edebff71 100%);
+}
+.hiw-list .sub-image{
+    width: 400px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 10px;
+    border-radius: 10px;
+}
+.hwqr {
+    background-image: url(hiworksQR.png);
+}
+.selectMENU {
+    background-image: url(hiworksMenu.png);
+}
+.staff {
+    background-image: url(hiworksStaff.png);
+}
+.delivered {
+    background-image: url(hiworksDelivered.png);
+}
+
+/* pricing container */
+#price-list {
+    
+}

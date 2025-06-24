@@ -10,3 +10,7 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'InterBold';
+  src: url('/public/fonts/Inter-Bold.otf');
+}

@@ -97,11 +97,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Body Container */}
-
-    {/* Benefit Section */}
-       <div className="benefits-container" id="benefits-container">
-        <div className="heading">BENEFITS</div>
+      {/* Benefit Section */}
+       <section className="benefits-container" id="benefits-container">
+        <div className="heading">Our Benefits</div>
         <h3><b>Why Switch to QR Self-Service?</b></h3>
         <p>“No more waiting. Just scan, select, and get served faster, smarter, and with zero hassle.”</p>
         <div className="benefit-content">
@@ -143,6 +141,7 @@ const Hero = () => {
             </div>
             <div className="particular">
               <div className="icon">
+                <img src="/sav.svg" alt="icon" id='box-icon'/>
               </div>
               <div className="analysis">
                 <div className="text">
@@ -152,7 +151,7 @@ const Hero = () => {
                 <div className="box">
                   <div id="order-info">
                     <div className="orders">
-                      <img src="/IMG_2138.JPG" alt="" />
+                      <img src="/IMG_2138.JPG" alt="image" />
                       <p>Rate our service today</p>
                     </div>
                     <div id="wait-time">
@@ -164,6 +163,7 @@ const Hero = () => {
             </div>
             <div className="particular">
               <div className="icon">
+                <img src="/roc.svg" alt="icon" id='box-icon'/>
               </div>
               <div className="analysis">
                 <div className="text">
@@ -185,6 +185,7 @@ const Hero = () => {
             </div>
             <div className="particular">
               <div className="icon">
+                <img src="/sac.svg" alt="" id='box-icon'/>
               </div>
               <div className="analysis">
                 <div className="text">
@@ -218,8 +219,136 @@ const Hero = () => {
   </video>
 </div>
         </div>
-      </div> 
+      </section> 
 
+      {/*FEATURES section */}
+      <section className="features-container">
+        <div className="features-content">
+          <div className="heading">Features</div>
+          <h3><b>What You Get with Our QR Solution</b></h3>
+
+          <div className="feature-comp">
+            <div className="text">
+              {/* <h3>What You Get with Our QR Solution</h3> */}
+              
+
+            </div>
+            {/* <div className="graphics-comp">
+            </div> */}
+            <ul className="feature-list">
+                <li id='inner-list'>
+                  <div className="text-icon">
+                    <div id='heading'>QR-Based Room & Table Access</div>
+                    <img src="/qricon.png" alt="" />
+                  </div>
+                  <div id='sub-text'>
+                    <div className="sub-image qr"></div>
+                    <p>Unique QR per room/table, scannable by any smartphone.</p>
+                  </div>  
+                </li>
+                <li id='inner-list'>
+                  <div className="text-icon">
+                    <div id='heading'>Instant Order Dashboard</div>
+                    <img src="/menuicon.png" alt="" />
+                  </div>
+                  <div id='sub-text'>
+                    <div className="sub-image orders"></div>
+                   <p>Staff get real-time notifications of customer orders.</p>
+                  </div>
+                </li>
+                <li id='inner-list'>
+                  <div className="text-icon">
+                    <div id='heading'>Customizable Menu & Services</div>
+                    <img src="/settingsicon.png" alt="" />
+                  </div>
+                  <div id='sub-text'>
+                    <div className="sub-image custom"></div>
+                    <p>Add food, drinks, laundry, or any service you offer.</p>
+                  </div>
+                </li>
+                <li id='inner-list'>
+                  <div className="text-icon">
+                    <div id='heading'>Multi-Department Routing</div>
+                    <img src="/depticon.png" alt="" />
+                  </div>
+                  <div id='sub-text'>
+                    <div className="sub-image dept"></div>
+                    <p>Orders go straight to the right department (e.g., kitchen, bar, cleaning).</p>
+                  </div>
+                </li>
+                <li id='inner-list'>
+                  <div className="text-icon">
+                    <div id='heading'>Analytics & Insights</div>
+                    <img src="/analysisicon.png" alt="" />
+                  </div>
+                  <div id='sub-text'>
+                    <div className="sub-image analytics"></div>
+                    <p>
+                      Know your most ordered services and busiest hours.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+          </div>
+
+        </div>
+      </section>
+
+      {/* How to use section */}
+      <section className="how-it-works" id="how-it-works">
+          <div className="heading">How it works</div>
+          <h3><b>How Guests Use It</b></h3>
+        <div className="how-it-works-content">
+          <ul className="hiw-list">
+            <li id='inner-list'>
+              <div id='sub-text'>
+                <div className="sub-image hwqr"></div>
+              </div>
+                <p>Scan the QR <br/>No app download needed.</p>
+            </li>
+            <li id='inner-list'>
+              <div id='sub-text'>
+                <div className="sub-image selectMENU"></div>
+              </div>
+                <p>Browse the Menu or Services<br/>Intuitive and mobile-friendly.</p>
+            </li>
+            <li id='inner-list'>
+              <div id='sub-text'>
+                <div className="sub-image staff"></div>
+              </div>
+                <p>Place an Order <br/> Select items and confirm.</p>
+            </li>
+            <li id='inner-list'>
+              <div id='sub-text'>
+                <div className="sub-image delivered"></div>
+              </div>
+                <p>Order Delivered <br/> Item Delivered to you.</p>
+            </li>            
+          </ul>
+        </div>
+      </section>
+
+      {/* Pricing section */}
+      <section className="pricing-container" id="prices">
+          <div className="heading">Our Pricings</div>
+          <h3><b>How users have achieved success with Hospitio</b></h3>
+        <div className="pricing-content">
+        <div id="price-list">
+          <li id='price-details'>
+            <div id="price-type">
+              <h3>Standard</h3>
+              <div id="users">5 Users</div>
+            </div>
+            <span>$50</span>/per month
+          </li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </div>
+            
+        </div>
+      </section>
       
     </div>
   );
