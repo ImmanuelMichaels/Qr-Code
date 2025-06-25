@@ -17,3 +17,15 @@ p {
 body {
   background: linear-gradient(135deg, #d1dbf8, #ffffff);
 }
+
+.head-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    border: 1px solid #1111112d;
+    border-radius: 10px;
+}
