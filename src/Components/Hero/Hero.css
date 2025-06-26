@@ -648,6 +648,8 @@ p {
     font-size: 1.2rem; 
 }
 .wtu-list {
+    width: 900px;
+    max-width: 1200px;
     color: #ffffff;
     display: flex;
     flex-wrap: wrap;

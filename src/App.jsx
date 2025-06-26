@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './Components/Navbar/Navbar';
 import Hero from './Components/Hero/Hero';
 import HotelQRLanding from './Components/QRpage/HotelQRLanding';
 import Signin from './Components/SignIn/Signin';
@@ -8,9 +9,9 @@ import AdminLayout from './Components/Admin/AdminLayout';
 import { Overview, Orders, Staff, StaffSalaries, StaffShifts } from './Components/Admin/Pages';
 import ProtectedRoute from './Components/ProtectedRoute';
 import Unauthorized from './Components/Unauthorized';
+import Footer from './Components/Footer/Footer';
 import './App.css';
 import './Utils/axiosConfig'; // Import axios config
-import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         {/* Catch-all route for non-existent pages */}
         <Route path="*" element={<div>404 - Page Not Found</div>} />
       </Routes>
+      < Footer />
     </Router>
   );
 }

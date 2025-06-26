@@ -1,11 +1,18 @@
 import React from 'react';
 import { Router, Link } from "react-router-dom";
+import AnimatedOnScroll from '../AnimatedOnScroll';
 import { QRCodeSVG } from 'qrcode.react';
 import './Hero.css';
 
 const Hero = () => {
   const qrValue = 'https://hoteldomain.vercel.app/hotel';
-
+  const features = [
+    "QR-Based Room & Table Access",
+    "Instant Order Dashboard",
+    "Customizable Menu & Services",
+    "Multi-Department Routing",
+    "Analytics & Insights",
+  ];
   
   return (
     <div className="page-container">
@@ -113,6 +120,7 @@ const Hero = () => {
       </div>
 
       {/* Benefit Section */}
+      <AnimatedOnScroll>
        <section className="benefits-container" id="benefits-container">
         <div className="head-icon">
           <svg fill="#000000" width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M844.8 354.133c51.2-34.133 85.333-89.6 85.333-153.6 0-98.133-81.067-179.2-179.2-179.2s-179.2 81.067-179.2 179.2c0 64 34.133 119.467 85.333 153.6-85.333 29.867-145.067 110.933-145.067 204.8v371.2c0 38.4 29.867 68.267 68.267 68.267h345.6c38.4 0 68.267-29.867 68.267-68.267v-371.2c0-98.133-64-179.2-149.333-204.8zm-29.867 392.534l-68.267 55.467-64-55.467 21.333-230.4 8.533 8.533c8.533 8.533 21.333 12.8 34.133 12.8s25.6-4.267 34.133-12.8l8.533-8.533 25.6 230.4zm-25.6-290.134l-38.4 38.4c-4.267 4.267-8.533 4.267-12.8 0L704 460.8c0-4.267-4.267-4.267-4.267-8.533v-8.533l38.4-38.4 4.267-4.267s4.267 0 4.267 4.267l38.4 38.4c8.533 4.267 8.533 8.533 4.267 12.8zm-179.2-256c0-76.8 59.733-136.533 136.533-136.533s136.533 59.733 136.533 136.533c0 76.8-59.733 136.533-136.533 136.533s-136.533-59.733-136.533-136.533zm341.334 729.6c0 17.067-12.8 25.6-25.6 25.6h-345.6c-17.067 0-25.6-12.8-25.6-25.6v-371.2c0-89.6 68.267-162.133 153.6-170.667l-25.6 25.6c-8.533 8.533-12.8 21.333-12.8 34.133 0 8.533 4.267 17.067 8.533 25.6l-38.4 268.8c0 12.8 4.267 25.6 12.8 34.133l72.533 59.733c4.267 4.267 12.8 8.533 21.333 8.533s12.8-4.267 21.333-8.533l76.8-59.733c8.533-8.533 17.067-21.333 12.8-34.133l-29.867-268.8c4.267-8.533 8.533-17.067 8.533-25.6 0-12.8-4.267-25.6-12.8-34.133l-29.867-29.867c89.6 8.533 157.867 81.067 157.867 170.667v375.467zm-486.4-170.666c0-4.267 4.267-8.533 4.267-12.8h-4.267V635.734c0-4.267 4.267-8.533 4.267-12.8h-4.267v-115.2c0-4.267 4.267-8.533 4.267-12.8 0-68.267-98.133-119.467-221.867-119.467C128 375.467 38.4 418.134 25.6 482.134c0 4.267-4.267 4.267-4.267 8.533v396.8c0 4.267 0 8.533 4.267 8.533C38.4 955.733 128 998.4 247.467 998.4c128 0 221.867-51.2 221.867-119.467h-4.267V759.466zM243.2 413.867c98.133 0 170.667 34.133 179.2 68.267v17.067c-12.8 34.133-85.333 64-179.2 64-102.4 0-179.2-38.4-179.2-76.8 0-29.867 76.8-72.533 179.2-72.533zM64 558.933c38.4 29.867 106.667 46.933 179.2 46.933 76.8 0 136.533-17.067 179.2-46.933V627.2c-12.8 34.133-85.333 64-179.2 64-102.4 0-179.2-38.4-179.2-76.8v-55.467zM64 691.2c38.4 29.867 106.667 46.933 179.2 46.933 76.8 0 136.533-17.067 179.2-46.933v59.733c-12.8 34.133-85.333 64-179.2 64-102.4 0-179.2-38.4-179.2-76.8V691.2zm179.2 260.267c-102.4 0-179.2-38.4-179.2-76.8v-64c38.4 29.867 106.667 46.933 179.2 46.933 76.8 0 136.533-17.067 179.2-46.933v68.267c-8.533 38.4-81.067 72.533-179.2 72.533z"></path></g></svg>
@@ -238,175 +246,195 @@ const Hero = () => {
   </video>
 </div>
         </div>
-      </section> 
+        </section> 
+      </AnimatedOnScroll>
 
       {/*FEATURES section */}
+      <AnimatedOnScroll delay={0.2} direction="left">
       <section className="features-container">
         <div className="head-icon">
-          <svg fill="#000000" width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M22.005 0c-.194-.002-.372.105-.458.276l-2.197 4.38-4.92.7c-.413.06-.578.56-.278.846l3.805 3.407-.953 4.81c-.07.406.363.715.733.523L22 12.67l4.286 2.273c.37.19.8-.118.732-.522l-.942-4.81 3.77-3.408c.3-.286.136-.787-.278-.846l-4.916-.7-2.2-4.38C22.368.11 22.195.002 22.005 0zM22 1.615l1.863 3.71c.073.148.216.25.38.273l4.168.595-3.227 2.89c-.12.112-.173.276-.145.436l.813 4.08-3.616-1.927c-.147-.076-.322-.076-.47 0l-3.59 1.926.823-4.08c.028-.16-.027-.325-.145-.438l-3.262-2.89 4.166-.594c.165-.023.307-.125.38-.272zM16.5 18c-.822 0-1.5.678-1.5 1.5v9c0 .822.678 1.5 1.5 1.5h9c.822 0 1.5-.678 1.5-1.5v-9c0-.822-.678-1.5-1.5-1.5zm0 1h9c.286 0 .5.214.5.5v9c0 .286-.214.5-.5.5h-9c-.286 0-.5-.214-.5-.5v-9c0-.286.214-.5.5-.5zM1.5 3C.678 3 0 3.678 0 4.5v9c0 .822.678 1.5 1.5 1.5h9c.822 0 1.5-.678 1.5-1.5v-9c0-.822-.678-1.5-1.5-1.5zm0 1h9c.286 0 .5.214.5.5v9c0 .286-.214.5-.5.5h-9c-.286 0-.5-.214-.5-.5v-9c0-.286.214-.5.5-.5zm0 14c-.822 0-1.5.678-1.5 1.5v9c0 .822.678 1.5 1.5 1.5h9c.822 0 1.5-.678 1.5-1.5v-9c0-.822-.678-1.5-1.5-1.5zm0 1h9c.286 0 .5.214.5.5v9c0 .286-.214.5-.5.5h-9c-.286 0-.5-.214-.5-.5v-9c0-.286.214-.5.5-.5z"></path></g></svg>
-          <p>Features</p>
+          {/* ...icon and title */}
         </div>
         <div className="features-content">
           <div className="heading">Features</div>
           <h3><b>What You Get with Our QR Solution</b></h3>
 
           <div className="feature-comp">
-            <div className="text">
-              {/* <h3>What You Get with Our QR Solution</h3> */}
-              
-
-            </div>
-            {/* <div className="graphics-comp">
-            </div> */}
             <ul className="feature-list">
-                <li id='inner-list'>
-                  <div className="text-icon">
-                    <div id='heading'>QR-Based Room & Table Access</div>
-                    <img src="/qricon.png" alt="" />
-                  </div>
-                  <div id='sub-text'>
-                    <div className="sub-image qr"></div>
-                    <p>Unique QR per room/table, scannable by any smartphone.</p>
-                  </div>  
-                </li>
-                <li id='inner-list'>
-                  <div className="text-icon">
-                    <div id='heading'>Instant Order Dashboard</div>
-                    <img src="/menuicon.png" alt="" />
-                  </div>
-                  <div id='sub-text'>
-                    <div className="sub-image orders"></div>
-                   <p>Staff get real-time notifications of customer orders.</p>
-                  </div>
-                </li>
-                <li id='inner-list'>
-                  <div className="text-icon">
-                    <div id='heading'>Customizable Menu & Services</div>
-                    <img src="/settingsicon.png" alt="" />
-                  </div>
-                  <div id='sub-text'>
-                    <div className="sub-image custom"></div>
-                    <p>Add food, drinks, laundry, or any service you offer.</p>
-                  </div>
-                </li>
-                <li id='inner-list'>
-                  <div className="text-icon">
-                    <div id='heading'>Multi-Department Routing</div>
-                    <img src="/depticon.png" alt="" />
-                  </div>
-                  <div id='sub-text'>
-                    <div className="sub-image dept"></div>
-                    <p>Orders go straight to the right department (e.g., kitchen, bar, cleaning).</p>
-                  </div>
-                </li>
-                <li id='inner-list'>
-                  <div className="text-icon">
-                    <div id='heading'>Analytics & Insights</div>
-                    <img src="/analysisicon.png" alt="" />
-                  </div>
-                  <div id='sub-text'>
-                    <div className="sub-image analytics"></div>
-                    <p>
-                      Know your most ordered services and busiest hours.
-                    </p>
-                  </div>
-                </li>
-              </ul>
+              {[
+                {
+                  heading: "QR-Based Room & Table Access",
+                  img: "/qricon.png",
+                  className: "qr",
+                  desc: "Unique QR per room/table, scannable by any smartphone.",
+                },
+                {
+                  heading: "Instant Order Dashboard",
+                  img: "/menuicon.png",
+                  className: "orders",
+                  desc: "Staff get real-time notifications of customer orders.",
+                },
+                {
+                  heading: "Customizable Menu & Services",
+                  img: "/settingsicon.png",
+                  className: "custom",
+                  desc: "Add food, drinks, laundry, or any service you offer.",
+                },
+                {
+                  heading: "Multi-Department Routing",
+                  img: "/depticon.png",
+                  className: "dept",
+                  desc: "Orders go straight to the right department (e.g., kitchen, bar, cleaning).",
+                },
+                {
+                  heading: "Analytics & Insights",
+                  img: "/analysisicon.png",
+                  className: "analytics",
+                  desc: "Know your most ordered services and busiest hours.",
+                },
+              ].map((item, i) => (
+                <AnimatedOnScroll
+                  key={i}
+                  delay={0.3 + i * 0.15}
+                  direction="up"
+                >
+                  <li id="inner-list">
+                    <div className="text-icon">
+                      <div id="heading">{item.heading}</div>
+                      <img src={item.img} alt="" />
+                    </div>
+                    <div id="sub-text">
+                      <div className={`sub-image ${item.className}`}></div>
+                      <p>{item.desc}</p>
+                    </div>
+                  </li>
+                </AnimatedOnScroll>
+              ))}
+            </ul>
           </div>
-
         </div>
       </section>
+    </AnimatedOnScroll>
+
 
       {/* How to use section */}
-      <section className="how-it-works" id="how-it-works">
+      <AnimatedOnScroll delay={0.4} direction="right">
+        <section className="how-it-works" id="how-it-works">
           <div className="head-icon">
-            <svg width="34px" height="34px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 2V4" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M12 20V22" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M2 12L4 12" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M20 12L22 12" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6 18L6.34305 17.657" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M17.6567 6.34326L18 6" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M18 18L17.657 17.657" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6.34326 6.34326L6 6" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> <path d="M15.2653 14.6272C15.3921 15.9353 15.4554 16.5894 15.0724 16.8801C14.6894 17.1709 14.1137 16.9058 12.9622 16.3756L12.6643 16.2384C12.337 16.0878 12.1734 16.0124 12 16.0124C11.8266 16.0124 11.663 16.0878 11.3357 16.2384L11.0378 16.3756C9.88634 16.9058 9.31059 17.1709 8.92757 16.8801C8.54456 16.5894 8.60794 15.9353 8.7347 14.6272L8.76749 14.2888C8.80351 13.9171 8.82152 13.7312 8.76793 13.5589C8.71434 13.3865 8.59521 13.2472 8.35696 12.9686L8.14005 12.715C7.30162 11.7345 6.88241 11.2443 7.02871 10.7739C7.13469 10.4331 7.4866 10.2661 8.14005 10.0942M10.5766 8.70419C11.2099 7.56806 11.5266 7 12 7C12.4734 7 12.7901 7.56806 13.4234 8.70419L13.5873 8.99812C13.7672 9.32097 13.8572 9.48239 13.9975 9.5889C14.1378 9.69541 14.3126 9.73495 14.6621 9.81402L14.9802 9.88601C16.2101 10.1643 16.825 10.3034 16.9713 10.7739C17.0769 11.1134 16.8879 11.4631 16.4595 12" stroke="#000000" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
-               <p>How it works</p>
+            <img src="/howitworks.png" alt="" />
+            <p>How it works</p>
           </div>
           <div className="heading">How it works</div>
-          <h3><b>How Guests Use It</b></h3>
-        <div className="how-it-works-content">
-          <ul className="hiw-list">
-            <li id='inner-list'>
-              <div id='sub-text'>
-                <div className="sub-image hwqr"></div>
-              </div>
-                <p>Scan the QR <br/>No app download needed.</p>
-            </li>
-            <li id='inner-list'>
-              <div id='sub-text'>
-                <div className="sub-image selectMENU"></div>
-              </div>
-                <p>Browse the Menu or Services<br/>Intuitive and mobile-friendly.</p>
-            </li>
-            <li id='inner-list'>
-              <div id='sub-text'>
-                <div className="sub-image staff"></div>
-              </div>
-                <p>Place an Order <br/> Select items and confirm.</p>
-            </li>
-            <li id='inner-list'>
-              <div id='sub-text'>
-                <div className="sub-image delivered"></div>
-              </div>
-                <p>Order Delivered <br/> Item Delivered to you.</p>
-            </li>            
-          </ul>
-        </div>
-      </section>
 
+          <div className="how-it-works-content">
+            <ul className="hiw-list">
+              {[
+                {
+                  iconClass: "hwqr",
+                  text: "Scan the QR",
+                  sub: "No app download needed.",
+                },
+                {
+                  iconClass: "selectMENU",
+                  text: "Browse the Menu or Services",
+                  sub: "Intuitive and mobile-friendly.",
+                },
+                {
+                  iconClass: "staff",
+                  text: "Place an Order",
+                  sub: "Select items and confirm.",
+                },
+                {
+                  iconClass: "delivered",
+                  text: "Order Delivered",
+                  sub: "Item delivered to you.",
+                },
+              ].map((item, i) => (
+                <AnimatedOnScroll key={i} delay={0.3 + i * 0.15} direction="up">
+                  <li id="inner-list">
+                    <div id="sub-text">
+                      <div className={`sub-image ${item.iconClass}`}></div>
+                    </div>
+                    <p>
+                      {item.text} <br />
+                      {item.sub}
+                    </p>
+                  </li>
+                </AnimatedOnScroll>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </AnimatedOnScroll>
+
+      
       {/* Pricing section */}
+      <AnimatedOnScroll delay={0.6} direction="left">
       <section className="pricing-container" id="prices">
         <div className="head-icon">
-          <svg width="30px" height="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <clipPath id="clip-pricetag2"> <rect width="32" height="32"></rect> </clipPath> </defs> <g id="pricetag2" clip-path="url(#000000clip-pricetag2)"> <g id="Group_2401" data-name="Group 2401" transform="translate(-208 -260)"> <g id="Group_2397" data-name="Group 2397"> <g id="Group_2396" data-name="Group 2396"> <g id="Group_2395" data-name="Group 2395"> <path id="Path_3856" data-name="Path 3856" d="M227.168,273.419l.524-.524q.4-.4.087-.708t-.713.1l-.514.514a3.37,3.37,0,0,0-2.156-.915,2.941,2.941,0,0,0-2.675,2.156,2.6,2.6,0,0,0,.08,1.337,8.391,8.391,0,0,0,.687,1.486l-2.256,2.255a1.844,1.844,0,0,1-.254-.788,1.652,1.652,0,0,1,.092-.679,8.652,8.652,0,0,1,.381-.836.745.745,0,0,0,.077-.495.906.906,0,0,0-.267-.471.854.854,0,0,0-.64-.266.828.828,0,0,0-.6.237,2.367,2.367,0,0,0-.507.779,2.985,2.985,0,0,0-.211,1.05,3.323,3.323,0,0,0,.2,1.215,4.338,4.338,0,0,0,.725,1.258l-1.309,1.31a.861.861,0,0,0-.26.4.386.386,0,0,0,.138.352.336.336,0,0,0,.376.114,1.61,1.61,0,0,0,.473-.362l1.208-1.207a3.856,3.856,0,0,0,1.562.834,2.913,2.913,0,0,0,1.552-.024,3.061,3.061,0,0,0,1.295-.776,2.85,2.85,0,0,0,.65-.975,2.564,2.564,0,0,0,.174-1.1,2.806,2.806,0,0,0-.245-1.031q-.22-.492-.657-1.259l2.018-2.017a1.554,1.554,0,0,1-.034,1.576.853.853,0,0,0,.1,1.13.826.826,0,0,0,.606.252.807.807,0,0,0,.6-.242,1.666,1.666,0,0,0,.362-.6,2.914,2.914,0,0,0,.172-.846,2.5,2.5,0,0,0-.162-1.133A4.3,4.3,0,0,0,227.168,273.419Zm-4.263,6.31a1.413,1.413,0,0,1-.956.422,1.883,1.883,0,0,1-1.149-.364l2.124-2.124a2.987,2.987,0,0,1,.374,1.154A1.174,1.174,0,0,1,222.9,279.729Zm.844-4.123a2.76,2.76,0,0,1-.294-1.006,1.274,1.274,0,0,1,1.2-1.167,2.414,2.414,0,0,1,.955.315Z" fill="#000000"></path> </g> </g> </g> <g id="Group_2400" data-name="Group 2400"> <g id="Group_2399" data-name="Group 2399"> <g id="Group_2398" data-name="Group 2398"> <path id="Path_3857" data-name="Path 3857" d="M239.516,261.014a.47.47,0,0,0-.519-.462.506.506,0,0,0-.48.514c0,.063-.013,1.556-3.314,1.978a4.632,4.632,0,0,0-1.631.529l-1.613-1.614a1,1,0,0,0-.966-.259l-8.016,2.149a1,1,0,0,0-.675.292l-13.526,13.526a1,1,0,0,0,0,1.414l12.08,12.079a1,1,0,0,0,1.414,0L235.8,277.635a1,1,0,0,0,.292-.673l2.148-8.018a1,1,0,0,0-.259-.966l-3.657-3.657a3.672,3.672,0,0,1,1.01-.285C239.621,263.488,239.522,261.114,239.516,261.014Zm-5.361,15.433-12.592,12.592L210.9,278.374l12.592-12.593,7.464-2,1.092,1.093a7.589,7.589,0,0,0-1.165,2.164,2.122,2.122,0,1,0,.967.245,6.461,6.461,0,0,1,.908-1.7l3.4,3.4Zm-2.545-8.12a1,1,0,1,1-1.415,0,.978.978,0,0,1,.371-.227,7.822,7.822,0,0,0-.161.886.5.5,0,0,0,.448.545.423.423,0,0,0,.05,0,.5.5,0,0,0,.5-.451,7.226,7.226,0,0,1,.147-.8C231.566,268.3,231.591,268.309,231.61,268.327Z" fill="#000000"></path> </g> </g> </g> </g> </g> </g></svg>
-          <p>Pricing</p>
+            <img src="/icnprice.png" alt="" />
+            <p>Pricing</p>
         </div>
         <div className="heading">Our Pricings</div>
           <h3><b>How users have achieved success with Hospitio</b></h3>
         <div className="pricing-content">
           <div id="price-list">
-            <li id='price-details'>
-              <div id="price-type">
-                <h3>Standard</h3>
-                <div id="users"><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="4" stroke="#4037cc" stroke-width="1.5"></circle> <path d="M18 9C19.6569 9 21 7.88071 21 6.5C21 5.11929 19.6569 4 18 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6 9C4.34315 9 3 7.88071 3 6.5C3 5.11929 4.34315 4 6 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <ellipse cx="12" cy="17" rx="6" ry="4" stroke="#4037cc" stroke-width="1.5"></ellipse> <path d="M20 19C21.7542 18.6153 23 17.6411 23 16.5C23 15.3589 21.7542 14.3847 20 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M4 19C2.24575 18.6153 1 17.6411 1 16.5C1 15.3589 2.24575 14.3847 4 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> </g></svg> <p>5 Users</p></div>
-              </div>
-              <div className="price-amount">
-                <h3>$50</h3><p>/per month</p>
-              </div>
-            </li>
-            <li id='price-details'>
-              <div id="price-type">
-                <h3>Pro</h3>
-                <div id="users"><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="4" stroke="#4037cc" stroke-width="1.5"></circle> <path d="M18 9C19.6569 9 21 7.88071 21 6.5C21 5.11929 19.6569 4 18 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6 9C4.34315 9 3 7.88071 3 6.5C3 5.11929 4.34315 4 6 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <ellipse cx="12" cy="17" rx="6" ry="4" stroke="#4037cc" stroke-width="1.5"></ellipse> <path d="M20 19C21.7542 18.6153 23 17.6411 23 16.5C23 15.3589 21.7542 14.3847 20 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M4 19C2.24575 18.6153 1 17.6411 1 16.5C1 15.3589 2.24575 14.3847 4 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> </g></svg> <p>10 Users</p></div>
-              </div>
-              <div className="price-amount">
-                <h3>$80</h3><p>/per month</p>
-              </div>
-            </li>
-            <li id='price-details'>
-              <div id="price-type">
-                <div id="with-cta"><h3>Max</h3> <div id="tag">Mast. Purpose</div></div>
-                <div id="users"><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="4" stroke="#4037cc" stroke-width="1.5"></circle> <path d="M18 9C19.6569 9 21 7.88071 21 6.5C21 5.11929 19.6569 4 18 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6 9C4.34315 9 3 7.88071 3 6.5C3 5.11929 4.34315 4 6 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <ellipse cx="12" cy="17" rx="6" ry="4" stroke="#4037cc" stroke-width="1.5"></ellipse> <path d="M20 19C21.7542 18.6153 23 17.6411 23 16.5C23 15.3589 21.7542 14.3847 20 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M4 19C2.24575 18.6153 1 17.6411 1 16.5C1 15.3589 2.24575 14.3847 4 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> </g></svg> <p>20 Users</p></div>
-              </div>
-              <div className="price-amount">
-                <h3>$150</h3><p>/per month</p>
-              </div>
-            </li>
-            <li id='price-details'>
-              <div id="price-type">
-                <div id="with-cta"><h3>Ultra</h3> <div id="tag">Recommended</div></div>
-                <div id="users"><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="4" stroke="#4037cc" stroke-width="1.5"></circle> <path d="M18 9C19.6569 9 21 7.88071 21 6.5C21 5.11929 19.6569 4 18 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M6 9C4.34315 9 3 7.88071 3 6.5C3 5.11929 4.34315 4 6 4" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <ellipse cx="12" cy="17" rx="6" ry="4" stroke="#4037cc" stroke-width="1.5"></ellipse> <path d="M20 19C21.7542 18.6153 23 17.6411 23 16.5C23 15.3589 21.7542 14.3847 20 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> <path d="M4 19C2.24575 18.6153 1 17.6411 1 16.5C1 15.3589 2.24575 14.3847 4 14" stroke="#4037cc" stroke-width="1.5" stroke-linecap="round"></path> </g></svg> <p>35 Users</p></div>
-              </div>
-              <div className="price-amount">
-                <h3>$250</h3><p>/per month</p>
-              </div>
-            </li>
+            {[
+              {
+                title: "Standard",
+                price: "$50",
+                users: "5 Users",
+                tag: null,
+              },
+              {
+                title: "Pro",
+                price: "$80",
+                users: "10 Users",
+                tag: null,
+              },
+              {
+                title: "Max",
+                price: "$150",
+                users: "20 Users",
+                tag: "Mast. Purpose",
+              },
+              {
+                title: "Ultra",
+                price: "$250",
+                users: "35 Users",
+                tag: "Recommended",
+              },
+            ].map((plan, i) => (
+              <AnimatedOnScroll
+                key={i}
+                delay={0.3 + i * 0.2}
+                direction="up" // Or try "zoom-in" or "fade"
+              >
+                <li id="price-details">
+                  <div id="price-type">
+                    <div id={plan.tag ? "with-cta" : ""}>
+                      <h3>{plan.title}</h3>
+                      {plan.tag && <div id="tag">{plan.tag}</div>}
+                    </div>
+                    <div id="users">
+                      {/* You can reuse your user SVG here */}
+                      <p>{plan.users}</p>
+                    </div>
+                  </div>
+                  <div className="price-amount">
+                    <h3>{plan.price}</h3>
+                    <p>/per month</p>
+                  </div>
+                </li>
+              </AnimatedOnScroll>
+            ))}
           </div>
         </div>
         <div className="cta-container">
           <button>Get started now <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
         </div>
       </section>
+      </AnimatedOnScroll>
 
       <section className="testimonial-container" id="testimonial">
         <div className="head-icon">
