@@ -24,7 +24,7 @@ const Navbar = () => {
         </div>
         
         {/* Hamburger Menu Button */}
-        <button 
+        <div 
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
@@ -32,7 +32,7 @@ const Navbar = () => {
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </div>
 
         {/* Desktop Menu & Mobile Menu */}
         <div className={`navbar-content ${isMenuOpen ? 'mobile-open' : ''}`}>
@@ -63,7 +63,7 @@ const Navbar = () => {
                     <rect x="3" y="5" width="18" height="14" rx="2" stroke="#f5f5f5" strokeWidth="2" strokeLinecap="round"></rect> 
                   </g>
                 </svg>
-                <span>Get in invite</span> 
+                <span>Book a demo</span> 
               </Link>
             </button>
           </div>

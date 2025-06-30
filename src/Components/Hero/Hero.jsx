@@ -27,38 +27,19 @@ const Hero = () => {
               <button id='demo'>
                 <Link to="/signin" className="link">
                   <span>Book a demo</span>
-                  {/* <svg width="30px" 
-                    height="30px" 
-                    viewBox="0 0 24 24" 
-                    fill="none" xmlns="http://www.w3.org/2000/svg" 
-                    stroke="#ffffff"><g id="SVGRepo_bgCarrier" 
-                    stroke-width="0"></g><g id="SVGRepo_tracerCarrier" 
-                    stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"> 
-                      <path d="M6 12H18M18 12L13 7M18 12L13 17" 
-                      stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>                 */}
                 </Link>
               </button>
               <button id="join"><Link to="/signup" className="link">
-                  <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#f5f5f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <rect x="3" y="5" width="18" height="14" rx="2" stroke="#f5f5f5" stroke-width="2" stroke-linecap="round"></rect> </g></svg><span> Talk to sales </span> 
+                  <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" 
+                  stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0">
+                    </g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" 
+                    stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+                    <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#f5f5f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <rect x="3" y="5" width="18" height="14" rx="2" stroke="#f5f5f5" stroke-width="2" stroke-linecap="round"></rect> </g></svg><span> Talk to sales </span> 
                 </Link>
               </button>
-            </div>
+          </div>
         </div>
-        <div className="content" id='bar-code'>
-            {/* <div className="bar-content">
-              <div className="image">
-                <QRCodeSVG 
-                value={qrValue}
-                size={350}
-                level="H"
-                includeMargin={true}
-                />
-              </div>
-
-            </div> */}
-
-        </div>
+        <div className="content" id='bar-code'></div>
       </div>
 
       {/* Banner */}
@@ -70,7 +51,7 @@ const Hero = () => {
           <img src="/ritz.png" alt="" />
           <img src="/carlson.png" alt="" />
         </div>
-        <h3>Already leading the hospitality game in:</h3>
+        <div id='heading'>Already leading the hospitality game in:</div>
         <div className="banner-content">
           <div className="flag-box">
             <div id="flag"><img src="/barca_flag.webp" alt="" /></div>
@@ -112,11 +93,10 @@ const Hero = () => {
           <p>Benefits</p>
         </div>
         <div className="heading">Our Benefits</div>
-        <h3><b>Why Switch to QR Self-Service?</b></h3>
-        <p>“No more waiting. Just scan, select, and get served faster, smarter, and with zero hassle.”</p>
+        <div id='heading'>“Stop spending on intercom maintainance, give your guest Hospitio selfservice app.”</div>
         <div className="benefit-content">
-          <div id="benefits-box">
-            <div className="particular">
+          <div id="benefits-box item one">
+            <div className="particular ">
               <div className="analysis">
                 <div className="text">
                   <div className="text2icon">
@@ -177,23 +157,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="mock">
-            <div className="graphic-container">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="video-bg"
-                >
-                <source src="/video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          <div id="benefits-box-duplicate">
-            <div className="particular-duplicate">
+            <div className="particular">
               <div className="analysis-duplicate" id='par-fes'>
                 <div className="text">
                   <div className="text2icon">
@@ -216,7 +180,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="particular-duplicate">
+            <div className="particular">
               <div className="analysis-duplicate" id='par-sec'>
                 <div className="text">
                   <div className="text2icon">
@@ -240,6 +204,20 @@ const Hero = () => {
               </div>
             </div>
           </div>
+          <div className="mock item">
+            <div className="graphic-container">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="video-bg"
+                >
+                <source src="/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
       </section> 
       </AnimatedOnScroll>
@@ -251,9 +229,9 @@ const Hero = () => {
             <img src="/features.png" alt="" />
             <p>Features</p>
         </div>
-        <div className="features-content">
           <div className="heading">Features</div>
-          <h3><b>What You Get with Our QR Solution</b></h3>
+          <div id='heading'>What You Get with Our QR Solution</div>
+        <div className="features-content">
 
           <div className="feature-comp">
             <ul className="feature-list">
@@ -321,6 +299,7 @@ const Hero = () => {
             <p>How it works</p>
           </div>
           <div className="heading">How it works</div>
+          <div id='heading'>“No more waiting. Just scan, select, and get served faster, smarter, and with zero hassle.”</div>
 
           <div className="how-it-works-content">
             <ul className="hiw-list">
@@ -366,64 +345,69 @@ const Hero = () => {
       
       {/* Pricing section */}
       <AnimatedOnScroll delay={0.6} direction="left">
-      <section className="pricing-container" id="prices">
-        <div className="head-icon">
-            <img src="/icnprice.png" alt="" />
-            <p>Pricing</p>
-        </div>
-        <div className="heading">Our Pricings</div>
-          <h3><b>How users have achieved success with Hospitio</b></h3>
-        <div className="pricing-content">
-          <div id="price-list">
-            {[
-              {
-                title: "Standard",
-                price: "$50",
-                users: "5 Users",
-                tag: null,
-              },
-              {
-                title: "Pro",
-                price: "$80",
-                users: "10 Users",
-                tag: null,
-              },
-              {
-                title: "Max",
-                price: "$150",
-                users: "20 Users",
-                tag: "Mast. Purpose",
-              },
-              
-            ].map((plan, i) => (
-              <AnimatedOnScroll
-                key={i}
-                delay={0.3 + i * 0.2}
-                direction="up" 
-              >
-                <li id="price-details">
-                  <div id="price-type">
-                    <div id={plan.tag ? "with-cta" : ""}>
-                      <h3>{plan.title}</h3>
-                      {plan.tag && <div id="tag">{plan.tag}</div>}
-                    </div>
-                    <div id="users">
-                      <p>{plan.users}</p>
-                    </div>
-                  </div>
-                  <div className="price-amount">
-                    <h3>{plan.price}</h3>
-                    <p>/per month</p>
-                  </div>
-                </li>
-              </AnimatedOnScroll>
-            ))}
+        <section className="pricing-container" id="prices">
+          <div className="head-icon">
+              <img src="/icnprice.png" alt="" />
+              <p>Pricing</p>
           </div>
-        </div>
-        <div className="cta-container">
-          <button>Get started now <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
-        </div>
-      </section>
+          <div className="heading">Our Pricings</div>
+            <div id='heading'>How users have achieved success with Hospitio app.</div>
+          <div className="pricing-content">
+            <div id="price-list">
+              {[
+                {
+                  title: "Standard",
+                  price: "$50",
+                  users: "5 Users",
+                  tag: null,
+                },
+                {
+                  title: "Pro",
+                  price: "$80",
+                  users: "10 Users",
+                  tag: null,
+                },
+                {
+                  title: "Max",
+                  price: "$150",
+                  users: "20 Users",
+                  tag: "Mast. Purpose",
+                },
+                
+              ].map((plan, i) => (
+                <AnimatedOnScroll
+                  key={i}
+                  delay={0.3 + i * 0.2}
+                  direction="up" 
+                >
+                  <li id="price-details">
+                    <div id="price-type">
+                      <div id={plan.tag ? "with-cta" : ""}>
+                        <h3>{plan.title}</h3>
+                        {plan.tag && <div id="tag">{plan.tag}</div>}
+                      </div>
+                      <div id="users">
+                        <p>{plan.users}</p>
+                      </div>
+                    </div>
+                    <div className="price-amount">
+                      <div className="price-container">
+                        <h3>{plan.price}</h3>
+                        <p>/per month</p>
+                      </div>
+                      <div className="cta-button">
+                        <button>Subscribe</button>
+                      </div>
+                    </div>
+                  </li>
+                </AnimatedOnScroll>
+              ))}
+            </div>
+          </div>
+          <div className="cta-container">
+            <button>Get started now <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+          </div>
+        </section>
       </AnimatedOnScroll>
 
       {/* Testimonial section */}
@@ -433,7 +417,7 @@ const Hero = () => {
           <p>Testimonial</p>
         </div>
         <div className="heading">Hear from Our Users</div>
-          <h3><b>Check our Reviews and Ratings from Google Reviews.</b></h3>
+          <div id='heading'>Check our Reviews and Ratings from Google Reviews.</div>
         <div className="testimonial-content">
             <img src="/google.png" alt="" />
           <div className="cta-container">
