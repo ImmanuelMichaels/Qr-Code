@@ -1,5 +1,8 @@
 @import url('./fonts/fonts.css');
 
+:root {
+  
+}
 #root {
   margin: 0 auto;
   padding: 0;
@@ -19,13 +22,42 @@ body {
 }
 
 .head-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: auto;
-    height: auto;
-    padding: 5px 10px;
-    border: 1px solid #1111112d;
-    border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  border: 1px solid #1111112d;
+  border-radius: 10px;
+}
+
+.features-content, 
+.how-it-works-content,
+.pricing-content,
+.testimonial-content,
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefits-container,
+.features-container, 
+.how-it-works,
+.pricing-container,
+.testimonial-container,
+.call-to-action {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-family: 'satoshi';
+  font-weight: bolder;
 }

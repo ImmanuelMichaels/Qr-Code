@@ -148,183 +148,186 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
-      <h1>Create Staff Account</h1>
-      <p className="subtitle">Fill in your details to register</p>
 
-      {successMessage && <div className="success-message">{successMessage}</div>}
-      {apiError && <div className="error-message api-error">{apiError}</div>}
+    <section className="auth-container" id="auth-con">
+      <div className="signup-container">
+        <h1>Create Staff Account</h1>
+        <p className="subtitle">Fill in your details to register</p>
 
-      <form onSubmit={handleSubmit} noValidate>
-        {/* First Name */}
-        <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            className={errors.firstName ? 'error' : ''}
-          />
-          {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+        {successMessage && <div className="success-message">{successMessage}</div>}
+        {apiError && <div className="error-message api-error">{apiError}</div>}
+
+        <form onSubmit={handleSubmit} noValidate>
+          {/* First Name */}
+          <div className="form-group">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              className={errors.firstName ? 'error' : ''}
+            />
+            {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+          </div>
+
+          {/* Last Name */}
+          <div className="form-group">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              className={errors.lastName ? 'error' : ''}
+            />
+            {errors.lastName && <span className="error-message">{errors.lastName}</span>}
+          </div>
+
+          {/* Email */}
+          <div className="form-group">
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={errors.email ? 'error' : ''}
+            />
+            {errors.email && <span className="error-message">{errors.email}</span>}
+          </div>
+
+          {/* Phone Number */}
+          <div className="form-group">
+            <label htmlFor="phoneNumber">Phone Number</label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              className={errors.phoneNumber ? 'error' : ''}
+            />
+            {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
+          </div>
+
+          {/* Date of Birth */}
+          <div className="form-group">
+            <label htmlFor="dob">Date of Birth</label>
+            <input
+              type="date"
+              id="dob"
+              name="dob"
+              value={formData.dob}
+              onChange={handleChange}
+              className={errors.dob ? 'error' : ''}
+            />
+            {errors.dob && <span className="error-message">{errors.dob}</span>}
+          </div>
+
+          {/* Address */}
+          <div className="form-group">
+            <label htmlFor="address">Home Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className={errors.address ? 'error' : ''}
+            />
+            {errors.address && <span className="error-message">{errors.address}</span>}
+          </div>
+
+          {/* State */}
+          <div className="form-group">
+            <label htmlFor="state">State</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              className={errors.state ? 'error' : ''}
+            />
+            {errors.state && <span className="error-message">{errors.state}</span>}
+          </div>
+
+          {/* Department Selection */}
+          <div className="form-group">
+            <label htmlFor="department">Department</label>
+            <select
+              id="department"
+              name="department"
+              value={formData.department}
+              onChange={handleChange}
+              className={errors.department ? 'error' : ''}
+            >
+              {departmentOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            {errors.department && <span className="error-message">{errors.department}</span>}
+          </div>
+
+          {/* Password */}
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className={errors.password ? 'error' : ''}
+            />
+            {errors.password && <span className="error-message">{errors.password}</span>}
+          </div>
+
+          {/* Confirm Password */}
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              className={errors.confirmPassword ? 'error' : ''}
+            />
+            {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
+          </div>
+
+          {/* Terms and Conditions */}
+          <div className="form-options">
+            <input
+              type="checkbox"
+              id="acceptTerms"
+              name="acceptTerms"
+              checked={formData.acceptTerms}
+              onChange={handleChange}
+            />
+            <label htmlFor="acceptTerms">
+              I agree to the <a href="/terms">terms and conditions</a>
+            </label>
+            {errors.acceptTerms && <span className="error-message">{errors.acceptTerms}</span>}
+          </div>
+
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+          </button>
+        </form>
+
+        <div className="signin-link">
+          Already have an account? <a href="/signin">Sign in</a>
         </div>
-
-        {/* Last Name */}
-        <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            className={errors.lastName ? 'error' : ''}
-          />
-          {errors.lastName && <span className="error-message">{errors.lastName}</span>}
-        </div>
-
-        {/* Email */}
-        <div className="form-group">
-          <label htmlFor="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={errors.email ? 'error' : ''}
-          />
-          {errors.email && <span className="error-message">{errors.email}</span>}
-        </div>
-
-        {/* Phone Number */}
-        <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            className={errors.phoneNumber ? 'error' : ''}
-          />
-          {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
-        </div>
-
-        {/* Date of Birth */}
-        <div className="form-group">
-          <label htmlFor="dob">Date of Birth</label>
-          <input
-            type="date"
-            id="dob"
-            name="dob"
-            value={formData.dob}
-            onChange={handleChange}
-            className={errors.dob ? 'error' : ''}
-          />
-          {errors.dob && <span className="error-message">{errors.dob}</span>}
-        </div>
-
-        {/* Address */}
-        <div className="form-group">
-          <label htmlFor="address">Home Address</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            className={errors.address ? 'error' : ''}
-          />
-          {errors.address && <span className="error-message">{errors.address}</span>}
-        </div>
-
-        {/* State */}
-        <div className="form-group">
-          <label htmlFor="state">State</label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            className={errors.state ? 'error' : ''}
-          />
-          {errors.state && <span className="error-message">{errors.state}</span>}
-        </div>
-
-        {/* Department Selection */}
-        <div className="form-group">
-          <label htmlFor="department">Department</label>
-          <select
-            id="department"
-            name="department"
-            value={formData.department}
-            onChange={handleChange}
-            className={errors.department ? 'error' : ''}
-          >
-            {departmentOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          {errors.department && <span className="error-message">{errors.department}</span>}
-        </div>
-
-        {/* Password */}
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className={errors.password ? 'error' : ''}
-          />
-          {errors.password && <span className="error-message">{errors.password}</span>}
-        </div>
-
-        {/* Confirm Password */}
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            className={errors.confirmPassword ? 'error' : ''}
-          />
-          {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
-        </div>
-
-        {/* Terms and Conditions */}
-        <div className="form-options">
-          <input
-            type="checkbox"
-            id="acceptTerms"
-            name="acceptTerms"
-            checked={formData.acceptTerms}
-            onChange={handleChange}
-          />
-          <label htmlFor="acceptTerms">
-            I agree to the <a href="/terms">terms and conditions</a>
-          </label>
-          {errors.acceptTerms && <span className="error-message">{errors.acceptTerms}</span>}
-        </div>
-
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Signing Up...' : 'Sign Up'}
-        </button>
-      </form>
-
-      <div className="signin-link">
-        Already have an account? <a href="/signin">Sign in</a>
       </div>
-    </div>
+    </section>
   );
 };
 

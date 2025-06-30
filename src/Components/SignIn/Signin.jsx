@@ -65,17 +65,14 @@ const Signin = () => {
           { email: formData.email, password: formData.password }
         );
 
-        // Store user data based on remember me preference
         if (formData.rememberMe) {
           localStorage.setItem('userInfo', JSON.stringify(data));
         } else {
           sessionStorage.setItem('userInfo', JSON.stringify(data));
         }
 
-        // Store token for API requests
         localStorage.setItem('token', data.token);
         
-        // Redirect based on role
         navigate(`/staff/${data.role}`);
       } catch (error) {
         setAuthError(
@@ -101,7 +98,6 @@ const Signin = () => {
 
   return (
     <div className='form-container' id='f-container'>
-      <div className='logo'><img src="/logo.png" alt="Logo" /></div>
       <div className="form-content">
 
         <div className="f-images">

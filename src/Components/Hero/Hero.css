@@ -9,7 +9,6 @@
     align-items: center;
     font-family: 'satoshi'; 
     background: linear-gradient(90deg, #0b1814, #051918, #02191e, #041924, #0c1728, #171429, #211026, #2a0c1f);
-    /* background-color: #111111;  */
     padding-top: 200px;  
 }
 .hero-content {
@@ -29,9 +28,7 @@
     width: 600px;
     font-family: 'satoshi';
     color: white;
-    /* transform: scaleY(1.5); */
 }
-
 .hero-content .hero-sub{
     color: white;
     font-size: 1.4rem;
@@ -176,7 +173,6 @@
 }
 .logo-banner img {
     width: 150px;
-    
 }
 
 .banner-container {
@@ -230,61 +226,85 @@
 }
 
 /* Benefits section styling*/
-.benefits-container,
-.features-container, 
-.how-it-works,
-.pricing-container,
-.testimonial-container,
-.call-to-action {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    font-family: 'satoshi';
-    font-weight: bolder;
-}
 .benefits-container
 .heading {
     font-size: 7rem;
     color: #1111112d;
+}
+.benefits-container h3 {
+    margin-bottom: 20px;
 }
 .benefit-content {
     display: flex;
     margin-top: 50px;
 }
 #benefits-box {
-    width: 650px;
-    height: 950px;
-    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    display: flex;
+    flex-direction: column;
     position: relative;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    box-shadow: 5px 5px 5px #1111112d;
-    border-top-right-radius: 10px;
 }
-#benefits-box::before {
-    content: '';
-    background: linear-gradient(135deg, #f0f4ff, #ffffff);
-    width: 500px;
-    height: 950px;
-    position: absolute;
-    top: 0;
-    left: 200px;
-    z-index: -1;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 5px 5px 5px #1111112d;
+#benefits-box-duplicate {
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 .particular {
-    width: 600px;
+    width: 400px;
     height: 200px;
-    border-radius: 20px;
-    padding: 40px;
-    margin: 20px 30px;
+    padding: 10px;
+    margin: 20px 10px;
+    align-items: end;
+    justify-content: flex-end;
+    display: flex;
+}
+
+#par-sec {
+    border-radius: 20px 0px 20px 20px;
+    position: relative;
+}
+.particular #par-sec::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  bottom: 100px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #1111112d;
+  border-left: 0;
+  margin-top: -5px;
+}
+
+.particular-duplicate #par-sec {
+    border-radius: 0px 20px 20px 20px;
+}
+.particular-duplicate #par-fes::after {
+  content: "";
+  position: absolute;
+  left: -28px;
+  bottom: 10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #1111112d;
+}
+.particular-duplicate #par-sec::after {
+  content: "";
+  position: absolute;
+  left: -28px;
+  bottom: 100px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #1111112d;
+}
+.particular-duplicate {
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    margin: 30px 10px;
 }
 .particular .icon {
     border-top-left-radius: 5px;
@@ -292,23 +312,66 @@
     border-bottom-left-radius: 0;
 }
 .analysis {
-    padding: 20px;
+    padding: 15px 20px;
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 20px 20px 0px 20px;
     box-shadow: 2px 2px 5px #11111134;
+    position: relative;
+    width: fit-content;
 }
-.analysis .text {
+.analysis::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  bottom: 10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #1111112d;
+  border-left: 0;
+  margin-top: -5px;
+}
+.analysis-duplicate {
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 20px 20px 20px 0px;
+    box-shadow: 2px 2px 5px #11111134;
+    position: relative;
+    width: fit-content;
+}
+/* .analysis::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  bottom: 10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #007aff;
+  border-left: 0;
+  margin-top: -5px;
+} */
+.text {
     padding-bottom: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #11111134;
 }
-.analysis h6 {
+.text p {
+    padding-right: 20px;
+}
+.text2icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.analysis, 
+.analysis-duplicate, h6 {
     font-size: 1rem;
 }
-.analysis p {
+.analysis, .analysis-duplicate  p {
     font-size: 0.700rem;
 }
-.analysis #order-info {
+#order-info {
     display: flex;
     justify-content: space-between;
 }
@@ -351,21 +414,36 @@
 .avatar:first-child {
   margin-left: 0;
 }
-
+.mock {
+    width: 320px;
+    height: 690px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/phone_14.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+}
 .graphic-container {
   position: relative;
-  width: 500px;
-  height: 1000px; 
-  border-radius: 10px;
+  width: 300px;
+  height: 640px; 
+  border-radius: 50px;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  box-shadow: 10px 10px 20px #1111112d;
 }
 .video-bg {
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 500px;
-  min-height: 500px;
-  width: 1500px;
+  width: 400px;
+  height: 300px;
+  max-width: 500px;
   height: auto;
   z-index: -1;
   transform: translate(-50%, -50%);
@@ -375,22 +453,14 @@
 
 
 /* FEATURES section styling */
-.features-content, 
-.how-it-works-content,
-.pricing-content,
-.testimonial-content,
-.cta-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 .feature-comp {
     display: flex;
     gap: 50px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: 50px 0;
 }
 .feature-list{
     width: 1200px;
@@ -528,6 +598,8 @@
 
 /* pricing container */
 #price-list {
+    width: 100%;
+    padding: 0 20px;
     flex-wrap: wrap;
     gap: 20px;
     display: flex;
@@ -609,7 +681,7 @@
 /* Testimonial section */
 
 .testimonial-content {
-    margin: 50px;
+    margin: 50px 0;
 }
 .testimonial-content img {
     width: 200px;
