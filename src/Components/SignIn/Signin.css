@@ -225,20 +225,53 @@ button:disabled {
 }
   
   /* Responsive Design */
+
+@media screen and (max-width: 768px) {
+  .signin-container {
+    margin: 1rem;
+    padding: 1.75rem;
+  }    
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }  
+  .forgot-password {
+    align-self: flex-end;
+  }
+  .f-images {
+    display: none;
+  }
+}
+
 @media (max-width: 500px) {
 .signin-container {
-  margin: 1rem;
-  padding: 1.75rem;
-}
-    
-.form-options {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-    
-.forgot-password {
-  align-self: flex-end;
-}
+        margin: 1rem;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }    
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }  
+  .forgot-password {
+    align-self: flex-end;
+  }
+  .f-images {
+    display: none;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px;
+  }
 }
   

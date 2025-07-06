@@ -63,7 +63,7 @@ const Navbar = () => {
                     <rect x="3" y="5" width="18" height="14" rx="2" stroke="#f5f5f5" strokeWidth="2" strokeLinecap="round"></rect> 
                   </g>
                 </svg>
-                <span>Book a demo</span> 
+                <span>Signup</span> 
               </Link>
             </button>
           </div>

@@ -10,6 +10,7 @@
   z-index: 10000;
   font-family: 'InterBold';
   overflow: hidden;
+  top: 0;
 }
 
 .announcement-board {
@@ -32,9 +33,9 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 150px;
   width: 100%;
   height: 80px;
   padding: 10px 20px;

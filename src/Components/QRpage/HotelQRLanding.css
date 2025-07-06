@@ -1,29 +1,20 @@
 /* HotelQRLanding.css */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.container {
+.departmental-container {
   background-color: #f5f5f5;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
   color: #333;
+  padding-top: 100px;
 }
 
-.header {
-  background-color: #1a365d;
-  color: white;
-  padding: 16px 0;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.header-title {
-  margin: 0;
-  font-size: 24px;
-  font-weight: bold;
+.dept-content {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
 }
 
 .main-content {
@@ -163,12 +154,6 @@
   gap: 12px;
 }
 
-.item {
-  background-color: white;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
 
 .drink-item {
   display: flex;
@@ -386,7 +371,14 @@
 .room-number-input {
   margin: 16px 0;
 }
-
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 95%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
 .room-number-input label {
   display: block;
   margin-bottom: 6px;
@@ -498,18 +490,12 @@
   font-weight: 500;
 }
 
-.footer {
-  margin-top: 32px;
-  padding: 16px;
-  text-align: center;
-  color: #718096;
-  font-size: 14px;
-}
 .footer-buttons {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-top: 30px;
+  width: 500px;
 }
 
 /* Media queries for better responsiveness */
