@@ -72,8 +72,6 @@
     height: 100%;
     object-fit: cover;
   }
-
-
   .signin-container {
     max-width: 450px;
     margin: 2rem auto;
@@ -113,7 +111,6 @@
 }
   
 .form-group input {
-  width: 100%;
   padding: 0.85rem;
   font-size: 1rem;
   border: 1px solid #dfe6e9;
@@ -152,6 +149,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
   
 .remember-me input {
@@ -194,7 +192,8 @@ button:disabled {
   background-color: #bdc3c7;
   cursor: not-allowed;
 }
-  
+
+ 
   /* Auth Error */
 .auth-error {
   background-color: #fdecea;
@@ -236,42 +235,45 @@ button:disabled {
     align-items: flex-start;
     gap: 0.75rem;
   }  
-  .forgot-password {
-    align-self: flex-end;
-  }
+
   .f-images {
     display: none;
   }
+
 }
 
 @media (max-width: 500px) {
 .signin-container {
-        margin: 1rem;
-        padding: 3rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }    
-  .form-options {
+    margin: 1rem;
+    padding: 3rem;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+  }    
+  .form-options {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 0.75rem;
   }  
   .forgot-password {
-    align-self: flex-end;
+    width: 100%;
+    text-align: center;
+    align-self: flex-start;
   }
   .f-images {
     display: none;
   }
-  input[type="text"], input[type="email"], input[type="password"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    margin-bottom: 20px;
+  input#email {
+    width: 90%;
+  }
+
+  input#password {
+    width: 90%;
   }
 }
   
