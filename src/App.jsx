@@ -47,7 +47,7 @@ function App() {
         {/* Catch-all route for non-existent pages */}
         <Route path="*" element={<div>404 - Page Not Found</div>} />
       </Routes>
-      {/* < Footer /> */}
+      < Footer />
     </Router>
   );
 }

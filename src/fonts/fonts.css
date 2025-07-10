@@ -5,12 +5,15 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'Minomu';
-  src: url('/fonts/MinomuBlack-BWVKV.otf') format('opentype');
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.otf');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'InterBold';
-  src: url('/public/fonts/Inter-Bold.otf');
+  src: url('/fonts/Inter-Bold.otf');
+  font-weight: 600;
+  font-style: normal;
 }
+

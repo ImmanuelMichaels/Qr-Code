@@ -1,4 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .hero-container {
     width: 100%;
     height: auto;
@@ -9,24 +18,24 @@
     align-items: center;
     font-family: 'satoshi'; 
     background: linear-gradient(90deg, #0b1814, #051918, #02191e, #041924, #0c1728, #171429, #211026, #2a0c1f);
-    padding-top: 200px;
-    padding-bottom: 20px;  
+    padding: 200px 20px 20px;  
 }
 .hero-content {
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: start;
-    padding: 40px;
+    padding: 20px;
 }
 .hero-content .hero-heading {
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 800;
     color: #111111;
-    line-height: 80px;
+    line-height: 1.2;
     margin: 0;
-    width: 600px;
+    width: 100% !important;
     font-family: 'satoshi';
     color: white;
 }
@@ -37,7 +46,6 @@
     width: auto;
 }
 .guest-feature {
-    width: 500px;
     display: flex;
     align-items: center;
     background-color: whitesmoke;
@@ -46,6 +54,8 @@
     padding: 5px 10px;
     border-radius: 20px;
     margin-bottom: 40px;
+    width: 100%;
+    max-width: 500px;
 } 
 .guest-feature p {
     font-size: .900rem;
@@ -192,21 +202,24 @@
 .banner-content {
     display: flex;
     flex-direction: row;
-    gap: 50px;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    padding: 20px;
 }
 .flag-box {
     width: auto;
     height: auto;
     overflow: hidden;
     display: flex;
-    display: flex;
     align-items: center;
     border: 1px solid #11111136;
     border-radius: 10px;
     gap: 10px;
+    flex: 1 1 150px;
+    min-width: 150px;
+    font-size: 0.8rem;
 }
 #flag {
     display: flex;
@@ -251,6 +264,7 @@
 }
 #benefits-box {
     width: 550px;
+    height: 550px;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(2, minmax(auto, 1fr));
@@ -267,6 +281,9 @@
     overflow: hidden;
     background-color: #02191e;
     border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .one {
     background-image: url(/card1.png);
@@ -336,19 +353,18 @@
     margin: 50px 0;
 }
 .feature-list{
-    width: 1200px;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     place-items: center;
-    row-gap: 20px;
-    padding: 20px;
+    gap: 10px;
     border-radius: 20px;
     background: linear-gradient(135deg, #6b63ff25 0%, #edebff71 100%);
+    width: 100%;
+    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* More responsive */
+    padding: 10px;
 }
 .feature-list #inner-list {
-    width: 350px;
-    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -359,6 +375,10 @@
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 5px 5px 10px #11111111;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    min-height: 500px;
 }
 .feature-list #inner-list .text-icon {
     display: flex;
@@ -433,7 +453,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    gap: 20px;
+    gap: 10px;
     background: linear-gradient(135deg, #6b63ff13 0%, #edebff71 100%);
 }
 .hiw-list #inner-list {
@@ -488,19 +508,22 @@
     gap: 20px;
     display: flex;
     margin: 50px 0;
+    justify-content: center;
 }
 #price-details {
-    width: 350px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
-    padding: 10px 0;
     border: 1px solid #1111112d;
     border-radius: 20px;
     list-style-type: none;
     background-color: #ffffff;
+    width: 100%;
+    max-width: 350px;
+    margin: 10px 0;
+    padding: 0 20px;
 }
 #price-type {
     width: 300px;
@@ -519,7 +542,7 @@
     gap: 30px;
 }
 #price-type h3 {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 #with-cta #tag {
     padding: 14px 20px;
@@ -542,7 +565,7 @@
     margin: 20px 0;
 }
 .price-amount {
-    width: 300px;
+    width: 100%;
     display: flex;
     padding: 10px 0;
     align-items: center;
@@ -551,9 +574,10 @@
 .price-container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .price-amount h3 {
-    font-size: 2rem;
+    font-size: 1rem;
 }
 .cta-button {
     align-items: center;
@@ -589,13 +613,14 @@
 
 /* call to action section */
 .cta-group{
-    width: 1200px;
-    height: 500px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
     background: linear-gradient(90deg, #0b1814, #051918, #02191e, #041924, #0c1728, #171429, #211026, #2a0c1f);
 }
 .call-to-action .cta-container {
@@ -615,13 +640,13 @@ h3 {
 .call-to-action .cta-content
 p {
     color: #ffffff;
-    width: 800px;
     text-align: center;
     font-size: 1.2rem; 
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
 }
 .wtu-list {
-    width: 900px;
-    max-width: 1200px;
     color: #ffffff;
     display: flex;
     flex-wrap: wrap;
@@ -629,6 +654,9 @@ p {
     align-items: center;
     padding: 20px 0;
     gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
 }
 .wtu-list li {
     list-style-type: none;
